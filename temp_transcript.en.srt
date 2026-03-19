@@ -1,0 +1,8156 @@
+1
+00:00:03,040 --> 00:00:08,880
+okay uh today uh we are going to see
+
+2
+00:00:05,839 --> 00:00:10,240
+uh data-driven testing uh using database
+
+3
+00:00:08,880 --> 00:00:11,840
+as a source
+
+4
+00:00:10,240 --> 00:00:13,360
+so what is data-driven testing so
+
+5
+00:00:11,840 --> 00:00:15,120
+yesterday we have seen like we can
+
+6
+00:00:13,360 --> 00:00:17,039
+specify the test data in
+
+7
+00:00:15,120 --> 00:00:18,320
+a file which can be or excel or it can
+
+8
+00:00:17,039 --> 00:00:20,000
+be database
+
+9
+00:00:18,320 --> 00:00:22,880
+and we read the data from the source
+
+10
+00:00:20,000 --> 00:00:25,279
+file and we use the data to perform the
+
+11
+00:00:22,880 --> 00:00:26,880
+data driven testing right
+
+12
+00:00:25,279 --> 00:00:29,039
+so in the previous session we have seen
+
+13
+00:00:26,880 --> 00:00:31,279
+how to work with excel uh excel sheet
+
+14
+00:00:29,039 --> 00:00:33,200
+like how to write the data into excel
+
+15
+00:00:31,279 --> 00:00:34,960
+how to read the data from excel and how
+
+16
+00:00:33,200 --> 00:00:37,280
+we can perform the data driven testing
+
+17
+00:00:34,960 --> 00:00:38,960
+using excel as a data file
+
+18
+00:00:37,280 --> 00:00:41,440
+and we have used
+
+19
+00:00:38,960 --> 00:00:43,760
+some third party or
+
+20
+00:00:41,440 --> 00:00:45,360
+open by excel right so open by excel is
+
+21
+00:00:43,760 --> 00:00:47,600
+an api which is
+
+22
+00:00:45,360 --> 00:00:49,200
+installed and then we will able to work
+
+23
+00:00:47,600 --> 00:00:51,199
+with excel sheet
+
+24
+00:00:49,200 --> 00:00:52,719
+so now similarly uh to work with the
+
+25
+00:00:51,199 --> 00:00:55,520
+database also
+
+26
+00:00:52,719 --> 00:00:58,399
+so we need to install something called
+
+27
+00:00:55,520 --> 00:01:00,399
+uh mysql connector okay so because we
+
+28
+00:00:58,399 --> 00:01:02,559
+have to connect to the database
+
+29
+00:01:00,399 --> 00:01:06,240
+and we have to execute the queries
+
+30
+00:01:02,559 --> 00:01:07,680
+through our program okay so for that we
+
+31
+00:01:06,240 --> 00:01:10,159
+need to have a
+
+32
+00:01:07,680 --> 00:01:12,000
+mysql excel connector so it depends on
+
+33
+00:01:10,159 --> 00:01:14,000
+the database so whichever database you
+
+34
+00:01:12,000 --> 00:01:15,280
+are working we need to install that
+
+35
+00:01:14,000 --> 00:01:16,240
+particular
+
+36
+00:01:15,280 --> 00:01:18,720
+uh
+
+37
+00:01:16,240 --> 00:01:20,799
+that particular module we can say okay
+
+38
+00:01:18,720 --> 00:01:21,920
+so first of all we'll see what is that
+
+39
+00:01:20,799 --> 00:01:23,360
+and uh
+
+40
+00:01:21,920 --> 00:01:24,799
+then we will see how we can interact
+
+41
+00:01:23,360 --> 00:01:26,560
+with the database first we will see some
+
+42
+00:01:24,799 --> 00:01:29,040
+basic operations like how to connect to
+
+43
+00:01:26,560 --> 00:01:31,439
+the database then how we can work with
+
+44
+00:01:29,040 --> 00:01:33,200
+the table like how we can insert the
+
+45
+00:01:31,439 --> 00:01:35,280
+data in the table how we can retrieve
+
+46
+00:01:33,200 --> 00:01:36,960
+the data from the table and how we can
+
+47
+00:01:35,280 --> 00:01:38,799
+update the data how we can delete the
+
+48
+00:01:36,960 --> 00:01:40,640
+data from a table so we need to ever
+
+49
+00:01:38,799 --> 00:01:42,240
+offer these basic
+
+50
+00:01:40,640 --> 00:01:44,000
+operations on the database through
+
+51
+00:01:42,240 --> 00:01:45,759
+automation code okay
+
+52
+00:01:44,000 --> 00:01:47,520
+and once you understand this then we
+
+53
+00:01:45,759 --> 00:01:50,000
+will see finally how we can fetch the
+
+54
+00:01:47,520 --> 00:01:52,240
+data from the database and how we can
+
+55
+00:01:50,000 --> 00:01:53,439
+use the data to perform the data driven
+
+56
+00:01:52,240 --> 00:01:54,399
+testing
+
+57
+00:01:53,439 --> 00:01:56,640
+right
+
+58
+00:01:54,399 --> 00:01:59,360
+so now we'll see how we can work with
+
+59
+00:01:56,640 --> 00:02:00,799
+the database so as a prerequisite the
+
+60
+00:01:59,360 --> 00:02:04,000
+first thing is
+
+61
+00:02:00,799 --> 00:02:06,159
+you need to install a database okay a
+
+62
+00:02:04,000 --> 00:02:07,680
+mysql you can install mysql because it
+
+63
+00:02:06,159 --> 00:02:09,360
+is open source
+
+64
+00:02:07,680 --> 00:02:12,080
+and instead of going with oracle or
+
+65
+00:02:09,360 --> 00:02:14,640
+mysql server so we can just uh
+
+66
+00:02:12,080 --> 00:02:16,879
+easily install my sql because sql
+
+67
+00:02:14,640 --> 00:02:19,280
+statements almost same in every database
+
+68
+00:02:16,879 --> 00:02:20,160
+so you cannot see much difference
+
+69
+00:02:19,280 --> 00:02:21,760
+and
+
+70
+00:02:20,160 --> 00:02:23,520
+even the program whatever we are writing
+
+71
+00:02:21,760 --> 00:02:24,800
+in the program so that is also exactly
+
+72
+00:02:23,520 --> 00:02:26,879
+the same
+
+73
+00:02:24,800 --> 00:02:28,319
+and the same code works for every kind
+
+74
+00:02:26,879 --> 00:02:30,959
+of database
+
+75
+00:02:28,319 --> 00:02:32,480
+and but only thing is uh the connector
+
+76
+00:02:30,959 --> 00:02:34,560
+will be changed so whatever the
+
+77
+00:02:32,480 --> 00:02:37,040
+connector we are going to install now
+
+78
+00:02:34,560 --> 00:02:38,800
+for mysql the same connector may not
+
+79
+00:02:37,040 --> 00:02:40,720
+work for other databases so we need to
+
+80
+00:02:38,800 --> 00:02:41,519
+install oracle connector
+
+81
+00:02:40,720 --> 00:02:43,599
+and
+
+82
+00:02:41,519 --> 00:02:45,519
+my sql connector different connectors
+
+83
+00:02:43,599 --> 00:02:46,959
+are there so we need to install them in
+
+84
+00:02:45,519 --> 00:02:49,920
+pi champ and then we will able to
+
+85
+00:02:46,959 --> 00:02:50,879
+interact with the particular databases
+
+86
+00:02:49,920 --> 00:02:52,640
+okay
+
+87
+00:02:50,879 --> 00:02:54,879
+now first of all
+
+88
+00:02:52,640 --> 00:02:57,440
+as a prerequisite you need to have my
+
+89
+00:02:54,879 --> 00:02:59,680
+sequel on your system okay so if you
+
+90
+00:02:57,440 --> 00:03:01,840
+don't have you have to download it and
+
+91
+00:02:59,680 --> 00:03:04,239
+you have to install it first
+
+92
+00:03:01,840 --> 00:03:06,480
+and once you install your my sql server
+
+93
+00:03:04,239 --> 00:03:08,879
+on your local machine
+
+94
+00:03:06,480 --> 00:03:10,480
+so then we need to log into mysql and
+
+95
+00:03:08,879 --> 00:03:12,159
+you need to create a database we need to
+
+96
+00:03:10,480 --> 00:03:14,319
+create a some sample table and you need
+
+97
+00:03:12,159 --> 00:03:15,599
+to populate some data in the table so
+
+98
+00:03:14,319 --> 00:03:18,480
+all these things you have to do as a
+
+99
+00:03:15,599 --> 00:03:20,000
+prerequisite to work with the databases
+
+100
+00:03:18,480 --> 00:03:22,400
+in python
+
+101
+00:03:20,000 --> 00:03:24,400
+okay so if you are not aware of sql or
+
+102
+00:03:22,400 --> 00:03:26,400
+if you are not aware of how to download
+
+103
+00:03:24,400 --> 00:03:28,720
+and how to install mysql and how to set
+
+104
+00:03:26,400 --> 00:03:30,159
+up my sql how to create the database how
+
+105
+00:03:28,720 --> 00:03:31,519
+to create the table so if you want to
+
+106
+00:03:30,159 --> 00:03:34,480
+know all these things
+
+107
+00:03:31,519 --> 00:03:35,440
+i'll share some videos recorded videos
+
+108
+00:03:34,480 --> 00:03:37,519
+link
+
+109
+00:03:35,440 --> 00:03:39,920
+and you can just go to the link and i
+
+110
+00:03:37,519 --> 00:03:42,319
+have explained the complete my sequel
+
+111
+00:03:39,920 --> 00:03:44,400
+concepts this particular playlist you
+
+112
+00:03:42,319 --> 00:03:46,400
+can get it from my youtube channel okay
+
+113
+00:03:44,400 --> 00:03:48,239
+but it is very important okay it is not
+
+114
+00:03:46,400 --> 00:03:50,080
+only for automation even if you go with
+
+115
+00:03:48,239 --> 00:03:51,440
+automation testing interview so people
+
+116
+00:03:50,080 --> 00:03:53,519
+will ask
+
+117
+00:03:51,440 --> 00:03:54,640
+questions from the database definitely
+
+118
+00:03:53,519 --> 00:03:55,760
+they will ask questions from the
+
+119
+00:03:54,640 --> 00:03:57,920
+database
+
+120
+00:03:55,760 --> 00:03:58,959
+so here i have just created almost 16
+
+121
+00:03:57,920 --> 00:04:00,640
+videos
+
+122
+00:03:58,959 --> 00:04:02,319
+so i can just go through each and every
+
+123
+00:04:00,640 --> 00:04:03,920
+video step by step and you can just
+
+124
+00:04:02,319 --> 00:04:06,400
+practice it your own
+
+125
+00:04:03,920 --> 00:04:08,799
+okay so again this is very huge concept
+
+126
+00:04:06,400 --> 00:04:11,360
+database i'm not going to cover here so
+
+127
+00:04:08,799 --> 00:04:13,599
+i just provide this link in the notes
+
+128
+00:04:11,360 --> 00:04:15,680
+and i provided here so go through the
+
+129
+00:04:13,599 --> 00:04:17,759
+link and from the beginning like what is
+
+130
+00:04:15,680 --> 00:04:21,199
+the introduction of database dbms
+
+131
+00:04:17,759 --> 00:04:23,040
+everything and then mysql like how to
+
+132
+00:04:21,199 --> 00:04:25,440
+install my sql how to work with the
+
+133
+00:04:23,040 --> 00:04:28,560
+color sql workbench command line so many
+
+134
+00:04:25,440 --> 00:04:30,479
+things are there and at least if you
+
+135
+00:04:28,560 --> 00:04:32,880
+listen first three videos you will be
+
+136
+00:04:30,479 --> 00:04:34,639
+able to work with the automation okay
+
+137
+00:04:32,880 --> 00:04:35,360
+first three videos at least you have to
+
+138
+00:04:34,639 --> 00:04:37,520
+know
+
+139
+00:04:35,360 --> 00:04:39,600
+like how to set up my sequel and how to
+
+140
+00:04:37,520 --> 00:04:41,360
+connect to the client and how to create
+
+141
+00:04:39,600 --> 00:04:44,000
+a database table in certain records
+
+142
+00:04:41,360 --> 00:04:46,320
+retrieving the data so at least uh first
+
+143
+00:04:44,000 --> 00:04:48,240
+three videos so you have to listen you
+
+144
+00:04:46,320 --> 00:04:49,360
+have to watch them and you have to do it
+
+145
+00:04:48,240 --> 00:04:50,880
+practically
+
+146
+00:04:49,360 --> 00:04:53,040
+and the rest of them you can just
+
+147
+00:04:50,880 --> 00:04:55,120
+prepare later also but to proceed
+
+148
+00:04:53,040 --> 00:04:58,000
+further for automation testing at least
+
+149
+00:04:55,120 --> 00:04:58,800
+we need to know uh these three concepts
+
+150
+00:04:58,000 --> 00:05:00,880
+okay
+
+151
+00:04:58,800 --> 00:05:03,280
+now listen this so let me just i already
+
+152
+00:05:00,880 --> 00:05:04,960
+copied this link and you can guy i can
+
+153
+00:05:03,280 --> 00:05:06,639
+get this link from this notes and you
+
+154
+00:05:04,960 --> 00:05:07,520
+can practice it
+
+155
+00:05:06,639 --> 00:05:12,320
+okay
+
+156
+00:05:07,520 --> 00:05:12,320
+now so let me just uh reference
+
+157
+00:05:12,400 --> 00:05:16,160
+reference link so this is mandatory
+
+158
+00:05:14,080 --> 00:05:18,639
+required guys so database is most
+
+159
+00:05:16,160 --> 00:05:18,639
+important
+
+160
+00:05:18,800 --> 00:05:22,479
+this is a reference link my sequel
+
+161
+00:05:20,960 --> 00:05:24,080
+reference link
+
+162
+00:05:22,479 --> 00:05:26,560
+okay so now how to work with the
+
+163
+00:05:24,080 --> 00:05:28,479
+database so first of all we will see
+
+164
+00:05:26,560 --> 00:05:30,080
+uh through automation code so let me
+
+165
+00:05:28,479 --> 00:05:32,560
+just show you some basic operation the
+
+166
+00:05:30,080 --> 00:05:35,120
+database so i already have my sql on my
+
+167
+00:05:32,560 --> 00:05:37,680
+machine so let me just connect to the my
+
+168
+00:05:35,120 --> 00:05:39,600
+sequel so if i take any database
+
+169
+00:05:37,680 --> 00:05:41,440
+right so there are two different uh
+
+170
+00:05:39,600 --> 00:05:42,880
+components are there
+
+171
+00:05:41,440 --> 00:05:45,440
+one is called as a
+
+172
+00:05:42,880 --> 00:05:47,680
+database server you can call as a
+
+173
+00:05:45,440 --> 00:05:51,840
+database server
+
+174
+00:05:47,680 --> 00:05:53,840
+the other component is database client
+
+175
+00:05:51,840 --> 00:05:55,680
+database client
+
+176
+00:05:53,840 --> 00:05:57,680
+so what is database server and what is
+
+177
+00:05:55,680 --> 00:05:59,680
+the database client
+
+178
+00:05:57,680 --> 00:06:02,400
+so normally the database server is
+
+179
+00:05:59,680 --> 00:06:04,960
+actual location where actual data will
+
+180
+00:06:02,400 --> 00:06:06,720
+be stored in the form of tables
+
+181
+00:06:04,960 --> 00:06:08,800
+all the databases are there in the
+
+182
+00:06:06,720 --> 00:06:10,800
+database server actual database server
+
+183
+00:06:08,800 --> 00:06:12,720
+is installed on that machine
+
+184
+00:06:10,800 --> 00:06:15,199
+and database client is a software a
+
+185
+00:06:12,720 --> 00:06:17,199
+small software through which we will be
+
+186
+00:06:15,199 --> 00:06:18,880
+able to connect to the database
+
+187
+00:06:17,199 --> 00:06:20,160
+from different location
+
+188
+00:06:18,880 --> 00:06:21,919
+so normally in the real time what
+
+189
+00:06:20,160 --> 00:06:24,160
+happens is you will not install
+
+190
+00:06:21,919 --> 00:06:26,080
+databases on your local machines okay so
+
+191
+00:06:24,160 --> 00:06:28,880
+databases will always install on the
+
+192
+00:06:26,080 --> 00:06:30,800
+remote machines but most of the times
+
+193
+00:06:28,880 --> 00:06:32,080
+on the linux machine so the databases
+
+194
+00:06:30,800 --> 00:06:34,720
+will be installed
+
+195
+00:06:32,080 --> 00:06:36,880
+so let us say this is my database server
+
+196
+00:06:34,720 --> 00:06:38,880
+and this is my database server and here
+
+197
+00:06:36,880 --> 00:06:39,919
+all the data will be stored
+
+198
+00:06:38,880 --> 00:06:41,759
+and uh
+
+199
+00:06:39,919 --> 00:06:44,240
+number of people uh will use the
+
+200
+00:06:41,759 --> 00:06:45,039
+database server so let us say this is
+
+201
+00:06:44,240 --> 00:06:47,120
+one
+
+202
+00:06:45,039 --> 00:06:49,120
+engineer he's another engineer so from
+
+203
+00:06:47,120 --> 00:06:51,840
+their local laptops they can connect to
+
+204
+00:06:49,120 --> 00:06:53,759
+the remote databases and uh then they
+
+205
+00:06:51,840 --> 00:06:55,599
+can access the database basically so
+
+206
+00:06:53,759 --> 00:06:56,880
+they can do all operation from their
+
+207
+00:06:55,599 --> 00:06:58,639
+local machines
+
+208
+00:06:56,880 --> 00:07:01,360
+but actually they don't install the
+
+209
+00:06:58,639 --> 00:07:03,120
+database server but without database
+
+210
+00:07:01,360 --> 00:07:05,120
+without installing database server in
+
+211
+00:07:03,120 --> 00:07:07,680
+those local machines how we can how can
+
+212
+00:07:05,120 --> 00:07:10,160
+they access the database server so these
+
+213
+00:07:07,680 --> 00:07:12,240
+people will install database clients in
+
+214
+00:07:10,160 --> 00:07:13,919
+every mission they will install only
+
+215
+00:07:12,240 --> 00:07:15,520
+client software
+
+216
+00:07:13,919 --> 00:07:17,120
+there are so many client softwares are
+
+217
+00:07:15,520 --> 00:07:19,680
+available in the market
+
+218
+00:07:17,120 --> 00:07:22,400
+so if i just go to mysql we have
+
+219
+00:07:19,680 --> 00:07:23,759
+sql workbench is a default lines okay
+
+220
+00:07:22,400 --> 00:07:25,680
+you will get automatically if you
+
+221
+00:07:23,759 --> 00:07:28,160
+install database server
+
+222
+00:07:25,680 --> 00:07:30,400
+and if you go with oracle we have sql
+
+223
+00:07:28,160 --> 00:07:31,919
+developer is there sql plus is there and
+
+224
+00:07:30,400 --> 00:07:34,400
+code is there
+
+225
+00:07:31,919 --> 00:07:36,400
+right so and if you go with the ms sql
+
+226
+00:07:34,400 --> 00:07:38,240
+server so we have sql server management
+
+227
+00:07:36,400 --> 00:07:39,840
+studio is there so for every database
+
+228
+00:07:38,240 --> 00:07:41,919
+there are so many client softwares are
+
+229
+00:07:39,840 --> 00:07:43,120
+available so you can use any client
+
+230
+00:07:41,919 --> 00:07:44,879
+software
+
+231
+00:07:43,120 --> 00:07:46,720
+so by default if you install database
+
+232
+00:07:44,879 --> 00:07:47,759
+server by default you will get the
+
+233
+00:07:46,720 --> 00:07:49,759
+client
+
+234
+00:07:47,759 --> 00:07:51,360
+okay by default you will get the client
+
+235
+00:07:49,759 --> 00:07:53,759
+if you install database server because
+
+236
+00:07:51,360 --> 00:07:55,840
+at the time of installing the database
+
+237
+00:07:53,759 --> 00:07:58,560
+it will ask you so do you want install
+
+238
+00:07:55,840 --> 00:08:00,560
+only database server or do you
+
+239
+00:07:58,560 --> 00:08:01,759
+want to install a database server along
+
+240
+00:08:00,560 --> 00:08:03,680
+with the client
+
+241
+00:08:01,759 --> 00:08:06,080
+or do you want to install only the
+
+242
+00:08:03,680 --> 00:08:07,440
+client so which will ask you at the time
+
+243
+00:08:06,080 --> 00:08:09,919
+of installation
+
+244
+00:08:07,440 --> 00:08:11,520
+so accordingly we have to select
+
+245
+00:08:09,919 --> 00:08:13,599
+depends upon your requirement and then
+
+246
+00:08:11,520 --> 00:08:15,599
+we will install the software
+
+247
+00:08:13,599 --> 00:08:17,599
+but in the real environment normally
+
+248
+00:08:15,599 --> 00:08:20,240
+what happens is all the databases will
+
+249
+00:08:17,599 --> 00:08:22,639
+be there in the remote machines
+
+250
+00:08:20,240 --> 00:08:24,800
+and people who want to work with the
+
+251
+00:08:22,639 --> 00:08:26,240
+databases they will given some access
+
+252
+00:08:24,800 --> 00:08:27,680
+and they will provide you the database
+
+253
+00:08:26,240 --> 00:08:29,599
+administrators will be there so they
+
+254
+00:08:27,680 --> 00:08:31,280
+will provide access like they will
+
+255
+00:08:29,599 --> 00:08:33,760
+provide you username and password
+
+256
+00:08:31,280 --> 00:08:35,440
+database name port number all these
+
+257
+00:08:33,760 --> 00:08:37,120
+things so accordingly
+
+258
+00:08:35,440 --> 00:08:38,800
+while connecting the database using
+
+259
+00:08:37,120 --> 00:08:40,959
+client so in the client you have to
+
+260
+00:08:38,800 --> 00:08:42,479
+provide those connection details
+
+261
+00:08:40,959 --> 00:08:44,480
+and how client will connect to the
+
+262
+00:08:42,479 --> 00:08:45,920
+database here by using connection
+
+263
+00:08:44,480 --> 00:08:48,240
+details which will connect to the
+
+264
+00:08:45,920 --> 00:08:50,080
+database and then once your client
+
+265
+00:08:48,240 --> 00:08:51,920
+application is connected to the database
+
+266
+00:08:50,080 --> 00:08:53,680
+then we will work all the stuff in the
+
+267
+00:08:51,920 --> 00:08:55,440
+database like we can review the data
+
+268
+00:08:53,680 --> 00:08:58,320
+from a table we can create the table in
+
+269
+00:08:55,440 --> 00:09:00,160
+the database server we can delete update
+
+270
+00:08:58,320 --> 00:09:02,240
+all kinds of operations we can perform
+
+271
+00:09:00,160 --> 00:09:03,839
+on the database through this client
+
+272
+00:09:02,240 --> 00:09:07,279
+application
+
+273
+00:09:03,839 --> 00:09:09,600
+okay so this is how things will happen
+
+274
+00:09:07,279 --> 00:09:11,360
+so mainly in the databases there are so
+
+275
+00:09:09,600 --> 00:09:13,279
+many commands are there
+
+276
+00:09:11,360 --> 00:09:14,880
+like if this is a database server and
+
+277
+00:09:13,279 --> 00:09:17,200
+travis client is basically database
+
+278
+00:09:14,880 --> 00:09:19,279
+server is a place where exactly all the
+
+279
+00:09:17,200 --> 00:09:21,760
+data will be stored because
+
+280
+00:09:19,279 --> 00:09:24,240
+a database server needs a lot of space
+
+281
+00:09:21,760 --> 00:09:26,000
+okay normally the machines are having
+
+282
+00:09:24,240 --> 00:09:28,560
+higher configuration machines they will
+
+283
+00:09:26,000 --> 00:09:30,160
+use to install database server but your
+
+284
+00:09:28,560 --> 00:09:32,080
+client machine may not have that
+
+285
+00:09:30,160 --> 00:09:33,600
+configuration so that kind of use
+
+286
+00:09:32,080 --> 00:09:34,959
+configuration so you will just install
+
+287
+00:09:33,600 --> 00:09:36,480
+only client software it is very
+
+288
+00:09:34,959 --> 00:09:37,440
+lightweight software
+
+289
+00:09:36,480 --> 00:09:39,600
+through which you will be able to
+
+290
+00:09:37,440 --> 00:09:41,920
+connect to the database server
+
+291
+00:09:39,600 --> 00:09:43,519
+but uh if you install mysql database on
+
+292
+00:09:41,920 --> 00:09:45,279
+your local machine by default you will
+
+293
+00:09:43,519 --> 00:09:46,480
+get database server along with the
+
+294
+00:09:45,279 --> 00:09:48,480
+client
+
+295
+00:09:46,480 --> 00:09:50,480
+okay these are the two important things
+
+296
+00:09:48,480 --> 00:09:51,519
+which you need to understand
+
+297
+00:09:50,480 --> 00:09:54,240
+now
+
+298
+00:09:51,519 --> 00:09:56,160
+what is an sql
+
+299
+00:09:54,240 --> 00:09:58,000
+so what is an sql so we understood what
+
+300
+00:09:56,160 --> 00:10:00,080
+is database server what is a database
+
+301
+00:09:58,000 --> 00:10:02,079
+client so database server is an area
+
+302
+00:10:00,080 --> 00:10:04,079
+where exactly data will be stored
+
+303
+00:10:02,079 --> 00:10:05,360
+database client is a software through
+
+304
+00:10:04,079 --> 00:10:06,720
+which we are able to connect to the
+
+305
+00:10:05,360 --> 00:10:08,959
+database server
+
+306
+00:10:06,720 --> 00:10:11,040
+and we can execute all the queries only
+
+307
+00:10:08,959 --> 00:10:13,120
+through database client
+
+308
+00:10:11,040 --> 00:10:15,600
+so query is nothing but a statement okay
+
+309
+00:10:13,120 --> 00:10:17,440
+by which we will work with the database
+
+310
+00:10:15,600 --> 00:10:20,640
+and what is an sql here
+
+311
+00:10:17,440 --> 00:10:22,560
+sql is a structure query language
+
+312
+00:10:20,640 --> 00:10:23,920
+and this is the language by which we
+
+313
+00:10:22,560 --> 00:10:25,600
+will able to communicate with the
+
+314
+00:10:23,920 --> 00:10:26,959
+database if you want to work with the
+
+315
+00:10:25,600 --> 00:10:29,360
+database
+
+316
+00:10:26,959 --> 00:10:32,480
+database will understand a language
+
+317
+00:10:29,360 --> 00:10:34,160
+right so what is that language sql so if
+
+318
+00:10:32,480 --> 00:10:37,680
+you go with any kind of database like
+
+319
+00:10:34,160 --> 00:10:40,480
+oracle sql server mysql everywhere sql
+
+320
+00:10:37,680 --> 00:10:42,720
+is almost same so if i learn sql from
+
+321
+00:10:40,480 --> 00:10:44,720
+one database you can easily work with
+
+322
+00:10:42,720 --> 00:10:46,720
+any other databases
+
+323
+00:10:44,720 --> 00:10:48,320
+if you learn sql from mysql then you
+
+324
+00:10:46,720 --> 00:10:50,880
+will be able to
+
+325
+00:10:48,320 --> 00:10:52,320
+work with the oracle sql so it is almost
+
+326
+00:10:50,880 --> 00:10:54,880
+same common language for all the
+
+327
+00:10:52,320 --> 00:10:56,240
+databases so structure query language is
+
+328
+00:10:54,880 --> 00:10:57,839
+a language
+
+329
+00:10:56,240 --> 00:11:00,079
+by which we will able to communicate
+
+330
+00:10:57,839 --> 00:11:02,240
+with the database but how why we will
+
+331
+00:11:00,079 --> 00:11:03,760
+communicate with the database because we
+
+332
+00:11:02,240 --> 00:11:05,760
+want to create a tables we want to
+
+333
+00:11:03,760 --> 00:11:07,360
+insert the data in the table we want to
+
+334
+00:11:05,760 --> 00:11:09,839
+update the data we want to select the
+
+335
+00:11:07,360 --> 00:11:11,839
+data so we will do so many operations on
+
+336
+00:11:09,839 --> 00:11:13,519
+the database so to perform all these
+
+337
+00:11:11,839 --> 00:11:16,399
+operations we have to communicate with
+
+338
+00:11:13,519 --> 00:11:19,839
+the database through a language so that
+
+339
+00:11:16,399 --> 00:11:22,079
+is a sequel structure query language
+
+340
+00:11:19,839 --> 00:11:23,839
+okay so in the database server actual
+
+341
+00:11:22,079 --> 00:11:25,200
+databases are installed all the
+
+342
+00:11:23,839 --> 00:11:27,519
+databases will be created in the
+
+343
+00:11:25,200 --> 00:11:29,360
+database server and whichever database
+
+344
+00:11:27,519 --> 00:11:31,120
+you have an access so we can connect to
+
+345
+00:11:29,360 --> 00:11:33,040
+the database and you can
+
+346
+00:11:31,120 --> 00:11:36,480
+find the data which is available in the
+
+347
+00:11:33,040 --> 00:11:39,120
+database so sql is mandatory required
+
+348
+00:11:36,480 --> 00:11:40,000
+but what is an sql means sql contains so
+
+349
+00:11:39,120 --> 00:11:42,720
+many
+
+350
+00:11:40,000 --> 00:11:45,920
+uh sub languages like
+
+351
+00:11:42,720 --> 00:11:47,920
+uh we have uh ddl
+
+352
+00:11:45,920 --> 00:11:50,240
+okay so ddl we have
+
+353
+00:11:47,920 --> 00:11:52,480
+data definition language so here we have
+
+354
+00:11:50,240 --> 00:11:53,760
+certain number of commands called uh
+
+355
+00:11:52,480 --> 00:11:55,040
+create
+
+356
+00:11:53,760 --> 00:11:58,240
+alter
+
+357
+00:11:55,040 --> 00:11:59,920
+drop truncate and so on
+
+358
+00:11:58,240 --> 00:12:01,920
+and similarly we have one more command
+
+359
+00:11:59,920 --> 00:12:04,639
+dml command so data manipulation
+
+360
+00:12:01,920 --> 00:12:06,399
+language commands so here insert command
+
+361
+00:12:04,639 --> 00:12:08,399
+update command
+
+362
+00:12:06,399 --> 00:12:11,519
+and delete command this comes under the
+
+363
+00:12:08,399 --> 00:12:14,959
+dml data manipulation language commands
+
+364
+00:12:11,519 --> 00:12:17,040
+and also we have a drl data retrieval
+
+365
+00:12:14,959 --> 00:12:18,160
+language so select command comes under
+
+366
+00:12:17,040 --> 00:12:20,399
+this
+
+367
+00:12:18,160 --> 00:12:21,680
+select a command will comes under the
+
+368
+00:12:20,399 --> 00:12:24,560
+drl
+
+369
+00:12:21,680 --> 00:12:26,000
+and then we have a tcl transaction
+
+370
+00:12:24,560 --> 00:12:28,480
+control command
+
+371
+00:12:26,000 --> 00:12:30,240
+so we have a commit and rollback so
+
+372
+00:12:28,480 --> 00:12:32,959
+these are the comes under tcl
+
+373
+00:12:30,240 --> 00:12:35,360
+transaction control language commands
+
+374
+00:12:32,959 --> 00:12:37,200
+and we also have a dcl command so data
+
+375
+00:12:35,360 --> 00:12:38,800
+control language commands
+
+376
+00:12:37,200 --> 00:12:40,480
+so here we have
+
+377
+00:12:38,800 --> 00:12:43,040
+grant
+
+378
+00:12:40,480 --> 00:12:44,480
+okay and rework
+
+379
+00:12:43,040 --> 00:12:47,120
+so these are the commands which are
+
+380
+00:12:44,480 --> 00:12:48,000
+comes under dcl so learning sql in the
+
+381
+00:12:47,120 --> 00:12:50,240
+sense
+
+382
+00:12:48,000 --> 00:12:52,000
+learning all these commands
+
+383
+00:12:50,240 --> 00:12:54,079
+and different commands various types of
+
+384
+00:12:52,000 --> 00:12:56,959
+commands are there in sql
+
+385
+00:12:54,079 --> 00:12:59,360
+but everybody will not use every command
+
+386
+00:12:56,959 --> 00:13:01,839
+and most of the developers most of the
+
+387
+00:12:59,360 --> 00:13:03,360
+times database designers right they will
+
+388
+00:13:01,839 --> 00:13:04,880
+use ddl
+
+389
+00:13:03,360 --> 00:13:06,800
+and dml
+
+390
+00:13:04,880 --> 00:13:07,680
+most of the times because they are the
+
+391
+00:13:06,800 --> 00:13:09,839
+people
+
+392
+00:13:07,680 --> 00:13:11,680
+they want to create the database so they
+
+393
+00:13:09,839 --> 00:13:13,279
+have to populate that they have to
+
+394
+00:13:11,680 --> 00:13:15,040
+create the tables they have to populate
+
+395
+00:13:13,279 --> 00:13:16,880
+some data in it
+
+396
+00:13:15,040 --> 00:13:19,040
+right administrators mostly database
+
+397
+00:13:16,880 --> 00:13:20,560
+administrators and designers they use
+
+398
+00:13:19,040 --> 00:13:21,920
+these commands
+
+399
+00:13:20,560 --> 00:13:23,200
+more
+
+400
+00:13:21,920 --> 00:13:25,279
+and now
+
+401
+00:13:23,200 --> 00:13:26,639
+testers or we can just go with the
+
+402
+00:13:25,279 --> 00:13:29,360
+developers
+
+403
+00:13:26,639 --> 00:13:30,720
+and developers also use ddl and dml
+
+404
+00:13:29,360 --> 00:13:33,120
+commands
+
+405
+00:13:30,720 --> 00:13:35,680
+and testers will use dml and drl
+
+406
+00:13:33,120 --> 00:13:37,279
+commands most of the times because we
+
+407
+00:13:35,680 --> 00:13:39,120
+are not going to create any tables in
+
+408
+00:13:37,279 --> 00:13:41,760
+the database we just want to work with
+
+409
+00:13:39,120 --> 00:13:43,440
+the data so we want to insert the data
+
+410
+00:13:41,760 --> 00:13:46,240
+in the table and we will check whether
+
+411
+00:13:43,440 --> 00:13:48,320
+insertion is properly working or not and
+
+412
+00:13:46,240 --> 00:13:51,360
+updation is working or not deletion is
+
+413
+00:13:48,320 --> 00:13:53,279
+working or not and we are mainly test
+
+414
+00:13:51,360 --> 00:13:55,120
+our testing is mainly focused on the
+
+415
+00:13:53,279 --> 00:13:57,040
+data on the table
+
+416
+00:13:55,120 --> 00:13:58,480
+not on other things
+
+417
+00:13:57,040 --> 00:14:00,000
+as per the functional testing i'm
+
+418
+00:13:58,480 --> 00:14:02,079
+talking about so because database
+
+419
+00:14:00,000 --> 00:14:03,839
+testing is a very huge thing it's not a
+
+420
+00:14:02,079 --> 00:14:05,120
+simple thing okay it's a completely
+
+421
+00:14:03,839 --> 00:14:07,680
+completely different it's a back-end
+
+422
+00:14:05,120 --> 00:14:09,120
+testing so in the database
+
+423
+00:14:07,680 --> 00:14:10,880
+if you want to test the complete
+
+424
+00:14:09,120 --> 00:14:12,480
+database testing you need to you need to
+
+425
+00:14:10,880 --> 00:14:15,360
+focus a lot of things
+
+426
+00:14:12,480 --> 00:14:17,600
+like not only data you have to check the
+
+427
+00:14:15,360 --> 00:14:19,120
+tables and relationship of the tables
+
+428
+00:14:17,600 --> 00:14:20,880
+and every table you have to verify the
+
+429
+00:14:19,120 --> 00:14:22,160
+column types what are the data type of
+
+430
+00:14:20,880 --> 00:14:23,120
+the columns what is the size of the
+
+431
+00:14:22,160 --> 00:14:25,040
+columns
+
+432
+00:14:23,120 --> 00:14:27,120
+and the normalization so what are the
+
+433
+00:14:25,040 --> 00:14:29,199
+relationship between the tables and you
+
+434
+00:14:27,120 --> 00:14:30,560
+have to test the procedures so stringers
+
+435
+00:14:29,199 --> 00:14:32,639
+functions
+
+436
+00:14:30,560 --> 00:14:34,800
+so and again which includes white box
+
+437
+00:14:32,639 --> 00:14:36,399
+testing and blockbuster so there are so
+
+438
+00:14:34,800 --> 00:14:38,079
+many things we need to test as part of
+
+439
+00:14:36,399 --> 00:14:40,639
+the database testing which includes a
+
+440
+00:14:38,079 --> 00:14:42,639
+functional and non-functional
+
+441
+00:14:40,639 --> 00:14:44,639
+but as point of functional testing what
+
+442
+00:14:42,639 --> 00:14:46,560
+we will do is normally when you want to
+
+443
+00:14:44,639 --> 00:14:48,639
+perform database testing
+
+444
+00:14:46,560 --> 00:14:50,480
+so normally we do some action on the
+
+445
+00:14:48,639 --> 00:14:52,560
+application so let's say there is a
+
+446
+00:14:50,480 --> 00:14:55,040
+registration form is available on your
+
+447
+00:14:52,560 --> 00:14:56,639
+web page so you provide all the data and
+
+448
+00:14:55,040 --> 00:14:58,000
+you will submit it
+
+449
+00:14:56,639 --> 00:15:00,560
+and you will get some acknowledgement
+
+450
+00:14:58,000 --> 00:15:02,880
+message okay your data is submitted or
+
+451
+00:15:00,560 --> 00:15:04,560
+your registration is successfully done
+
+452
+00:15:02,880 --> 00:15:06,399
+and you will get some acknowledgement on
+
+453
+00:15:04,560 --> 00:15:08,959
+the ui
+
+454
+00:15:06,399 --> 00:15:10,560
+but uh is it really uh
+
+455
+00:15:08,959 --> 00:15:12,720
+true whether easy whether it is
+
+456
+00:15:10,560 --> 00:15:14,079
+successfully successfully inserted data
+
+457
+00:15:12,720 --> 00:15:14,800
+in the table or not how we will know
+
+458
+00:15:14,079 --> 00:15:16,639
+that
+
+459
+00:15:14,800 --> 00:15:18,320
+just by seeing the confirmation message
+
+460
+00:15:16,639 --> 00:15:20,560
+we cannot confirm
+
+461
+00:15:18,320 --> 00:15:22,240
+so we have to log into the database we
+
+462
+00:15:20,560 --> 00:15:24,720
+have to get the data from the particular
+
+463
+00:15:22,240 --> 00:15:26,880
+table or registration table and see
+
+464
+00:15:24,720 --> 00:15:28,560
+whether the data is available or not so
+
+465
+00:15:26,880 --> 00:15:31,120
+whatever data you are provided from the
+
+466
+00:15:28,560 --> 00:15:32,959
+ui or application the same record is
+
+467
+00:15:31,120 --> 00:15:34,800
+available in the database or not you
+
+468
+00:15:32,959 --> 00:15:36,880
+have to test this manually
+
+469
+00:15:34,800 --> 00:15:38,880
+so that is actual database testing we
+
+470
+00:15:36,880 --> 00:15:42,000
+will do as per the functional point of
+
+471
+00:15:38,880 --> 00:15:43,680
+view as an auto as a functional tester
+
+472
+00:15:42,000 --> 00:15:46,160
+and if you are purely database test
+
+473
+00:15:43,680 --> 00:15:48,639
+engineer then you have to focus more on
+
+474
+00:15:46,160 --> 00:15:50,959
+database objects how to test the tables
+
+475
+00:15:48,639 --> 00:15:52,639
+procedures views indexes store processor
+
+476
+00:15:50,959 --> 00:15:54,320
+triggers cursor there are so many things
+
+477
+00:15:52,639 --> 00:15:56,560
+you have to test there's completely
+
+478
+00:15:54,320 --> 00:15:58,240
+purely back and testing and there you
+
+479
+00:15:56,560 --> 00:15:59,839
+will not do anything on the application
+
+480
+00:15:58,240 --> 00:16:02,000
+side testing
+
+481
+00:15:59,839 --> 00:16:03,279
+okay so as a functional test engineer
+
+482
+00:16:02,000 --> 00:16:05,600
+you have to do
+
+483
+00:16:03,279 --> 00:16:07,360
+some testing on the web application and
+
+484
+00:16:05,600 --> 00:16:09,600
+some part of testing you do on the
+
+485
+00:16:07,360 --> 00:16:11,199
+database side so it is a combination of
+
+486
+00:16:09,600 --> 00:16:13,120
+front-end and backend
+
+487
+00:16:11,199 --> 00:16:16,480
+so that's the reason we can also call it
+
+488
+00:16:13,120 --> 00:16:18,560
+as a gray box testing it is not purely
+
+489
+00:16:16,480 --> 00:16:21,120
+white box and also it is not purely
+
+490
+00:16:18,560 --> 00:16:23,199
+black box so when you do the restriction
+
+491
+00:16:21,120 --> 00:16:25,040
+on the ui when you do testing on that
+
+492
+00:16:23,199 --> 00:16:27,040
+that's a black boss test
+
+493
+00:16:25,040 --> 00:16:28,720
+but once you log into the database and
+
+494
+00:16:27,040 --> 00:16:31,040
+execute the queries and see the data in
+
+495
+00:16:28,720 --> 00:16:33,120
+the table that is a white box testing so
+
+496
+00:16:31,040 --> 00:16:35,040
+the combination we can call as a gray
+
+497
+00:16:33,120 --> 00:16:36,480
+box so that's a completely database
+
+498
+00:16:35,040 --> 00:16:38,720
+testing pattern
+
+499
+00:16:36,480 --> 00:16:39,600
+but celium is not meant for database
+
+500
+00:16:38,720 --> 00:16:41,519
+testing
+
+501
+00:16:39,600 --> 00:16:43,680
+selenium is basically
+
+502
+00:16:41,519 --> 00:16:45,759
+used for automating the web that's the
+
+503
+00:16:43,680 --> 00:16:47,040
+main fundamental concept of cylinder
+
+504
+00:16:45,759 --> 00:16:48,560
+webdriver
+
+505
+00:16:47,040 --> 00:16:50,399
+okay most of the people will use this
+
+506
+00:16:48,560 --> 00:16:51,920
+technology like database testing using
+
+507
+00:16:50,399 --> 00:16:53,600
+selenium like this
+
+508
+00:16:51,920 --> 00:16:55,440
+but if i really say
+
+509
+00:16:53,600 --> 00:16:57,519
+by using selenium we are not exactly
+
+510
+00:16:55,440 --> 00:16:59,519
+testing the database
+
+511
+00:16:57,519 --> 00:17:00,959
+we are not exactly testing the database
+
+512
+00:16:59,519 --> 00:17:03,519
+but what exactly we are doing with the
+
+513
+00:17:00,959 --> 00:17:05,360
+database in automation is if the if you
+
+514
+00:17:03,519 --> 00:17:07,360
+already have some tables in the database
+
+515
+00:17:05,360 --> 00:17:09,280
+if it contains some data
+
+516
+00:17:07,360 --> 00:17:12,400
+we will read the data from the tables
+
+517
+00:17:09,280 --> 00:17:13,839
+and we use the data for testing purpose
+
+518
+00:17:12,400 --> 00:17:15,199
+and that time
+
+519
+00:17:13,839 --> 00:17:16,959
+we should able to interact with the
+
+520
+00:17:15,199 --> 00:17:19,120
+database we should connect to the
+
+521
+00:17:16,959 --> 00:17:21,280
+database and we will execute all the
+
+522
+00:17:19,120 --> 00:17:23,280
+queries through automation script
+
+523
+00:17:21,280 --> 00:17:25,520
+so that's how we will do that it is not
+
+524
+00:17:23,280 --> 00:17:28,079
+completely database testing
+
+525
+00:17:25,520 --> 00:17:29,840
+okay so database testing
+
+526
+00:17:28,079 --> 00:17:31,679
+we have to use some different tools are
+
+527
+00:17:29,840 --> 00:17:33,840
+available and most of the times we use
+
+528
+00:17:31,679 --> 00:17:35,919
+manual testing only because we don't
+
+529
+00:17:33,840 --> 00:17:37,520
+have automation tools for to perform the
+
+530
+00:17:35,919 --> 00:17:39,440
+database testing so eighty percent of
+
+531
+00:17:37,520 --> 00:17:42,640
+the testing will be done manually in
+
+532
+00:17:39,440 --> 00:17:44,400
+database testing side okay so selim is
+
+533
+00:17:42,640 --> 00:17:46,400
+only meant for web application it's not
+
+534
+00:17:44,400 --> 00:17:48,000
+meant for database testing
+
+535
+00:17:46,400 --> 00:17:49,600
+but still
+
+536
+00:17:48,000 --> 00:17:50,640
+uh we should able to interact with the
+
+537
+00:17:49,600 --> 00:17:53,360
+database
+
+538
+00:17:50,640 --> 00:17:54,960
+still we fetch the data from the tables
+
+539
+00:17:53,360 --> 00:17:57,200
+okay and sometimes we can insert the
+
+540
+00:17:54,960 --> 00:17:59,200
+data update the data so these operations
+
+541
+00:17:57,200 --> 00:18:00,880
+we can do through automation script
+
+542
+00:17:59,200 --> 00:18:02,000
+at minimum level
+
+543
+00:18:00,880 --> 00:18:04,720
+okay
+
+544
+00:18:02,000 --> 00:18:06,240
+so to do these all these things uh we
+
+545
+00:18:04,720 --> 00:18:08,480
+have to know the exclude so which is
+
+546
+00:18:06,240 --> 00:18:10,559
+very very important so as a automation
+
+547
+00:18:08,480 --> 00:18:12,840
+tester so we have to mainly focus on
+
+548
+00:18:10,559 --> 00:18:16,080
+these commands dml
+
+549
+00:18:12,840 --> 00:18:18,880
+drl and again in the drl select command
+
+550
+00:18:16,080 --> 00:18:20,559
+you have to learn joins the subqueries
+
+551
+00:18:18,880 --> 00:18:22,880
+right all these things set operators
+
+552
+00:18:20,559 --> 00:18:24,880
+union union all intersect so these are
+
+553
+00:18:22,880 --> 00:18:27,120
+all very important
+
+554
+00:18:24,880 --> 00:18:28,880
+and now tcl and dcl most of the times
+
+555
+00:18:27,120 --> 00:18:30,400
+developer will use it because their
+
+556
+00:18:28,880 --> 00:18:32,799
+transactional control language so
+
+557
+00:18:30,400 --> 00:18:35,120
+whenever you do insert or update delete
+
+558
+00:18:32,799 --> 00:18:37,120
+and those transactions will not perform
+
+559
+00:18:35,120 --> 00:18:38,880
+permanently so if you want to make the
+
+560
+00:18:37,120 --> 00:18:40,720
+transaction permanent then we have to
+
+561
+00:18:38,880 --> 00:18:42,799
+issue the commit command
+
+562
+00:18:40,720 --> 00:18:44,640
+and suppose by mistake you have done
+
+563
+00:18:42,799 --> 00:18:46,640
+some mistake and if you want to get back
+
+564
+00:18:44,640 --> 00:18:49,280
+that mistake if you want to roll back
+
+565
+00:18:46,640 --> 00:18:51,120
+then you will use rollback command
+
+566
+00:18:49,280 --> 00:18:52,720
+and grant and rework is used by the
+
+567
+00:18:51,120 --> 00:18:55,120
+administrator if the administrator want
+
+568
+00:18:52,720 --> 00:18:57,120
+to give some permission to the user on
+
+569
+00:18:55,120 --> 00:18:58,480
+the tables or on the database they use
+
+570
+00:18:57,120 --> 00:18:59,760
+grant command
+
+571
+00:18:58,480 --> 00:19:02,400
+and if they want to remove the
+
+572
+00:18:59,760 --> 00:19:04,880
+permissions they use revoke command
+
+573
+00:19:02,400 --> 00:19:07,280
+so various commands are there so in my
+
+574
+00:19:04,880 --> 00:19:09,679
+videos i have explained all the commands
+
+575
+00:19:07,280 --> 00:19:12,640
+in depth so i can just go to the videos
+
+576
+00:19:09,679 --> 00:19:15,120
+and learn sql in depth okay that is how
+
+577
+00:19:12,640 --> 00:19:16,080
+i can recommend as of now okay
+
+578
+00:19:15,120 --> 00:19:18,240
+so
+
+579
+00:19:16,080 --> 00:19:19,840
+this much knowledge is enough to proceed
+
+580
+00:19:18,240 --> 00:19:21,360
+with the automation
+
+581
+00:19:19,840 --> 00:19:23,600
+so now
+
+582
+00:19:21,360 --> 00:19:25,919
+by default as i said selenium is a web
+
+583
+00:19:23,600 --> 00:19:27,520
+automation so which we cannot interact
+
+584
+00:19:25,919 --> 00:19:29,440
+with any database
+
+585
+00:19:27,520 --> 00:19:31,200
+we cannot do anything on the database by
+
+586
+00:19:29,440 --> 00:19:33,200
+using selenium
+
+587
+00:19:31,200 --> 00:19:34,880
+but uh yesterday also we have same thing
+
+588
+00:19:33,200 --> 00:19:37,120
+we discussed
+
+589
+00:19:34,880 --> 00:19:38,720
+psyllium doesn't support excel but how
+
+590
+00:19:37,120 --> 00:19:40,960
+you have interacted with excel how you
+
+591
+00:19:38,720 --> 00:19:43,520
+have worked with excel in automation
+
+592
+00:19:40,960 --> 00:19:44,960
+we have externally we have installed
+
+593
+00:19:43,520 --> 00:19:46,960
+open by excel
+
+594
+00:19:44,960 --> 00:19:48,960
+and then we got some classes and methods
+
+595
+00:19:46,960 --> 00:19:51,520
+through which we will able to do that
+
+596
+00:19:48,960 --> 00:19:53,919
+same thing for database also
+
+597
+00:19:51,520 --> 00:19:55,520
+for database also we have to install
+
+598
+00:19:53,919 --> 00:19:58,160
+proper connector
+
+599
+00:19:55,520 --> 00:20:00,880
+depends upon type of database and then
+
+600
+00:19:58,160 --> 00:20:02,559
+we will get some classes and methods
+
+601
+00:20:00,880 --> 00:20:04,000
+and by using those classes and methods
+
+602
+00:20:02,559 --> 00:20:05,520
+we will be able to work with the
+
+603
+00:20:04,000 --> 00:20:08,159
+databases
+
+604
+00:20:05,520 --> 00:20:09,679
+okay now we'll see step by step so the
+
+605
+00:20:08,159 --> 00:20:11,200
+first thing is we need to as a
+
+606
+00:20:09,679 --> 00:20:12,559
+prerequisite we need to install
+
+607
+00:20:11,200 --> 00:20:14,480
+something called
+
+608
+00:20:12,559 --> 00:20:16,880
+mysql
+
+609
+00:20:14,480 --> 00:20:18,720
+connector for python
+
+610
+00:20:16,880 --> 00:20:21,039
+so this is a package which we have to
+
+611
+00:20:18,720 --> 00:20:23,120
+install on pycharm and which will
+
+612
+00:20:21,039 --> 00:20:24,400
+provide you so many classes and methods
+
+613
+00:20:23,120 --> 00:20:26,720
+so through which we will be able to
+
+614
+00:20:24,400 --> 00:20:28,480
+interact with the database but before
+
+615
+00:20:26,720 --> 00:20:30,720
+directly going to the automation part
+
+616
+00:20:28,480 --> 00:20:33,280
+let me show you manually so i said i
+
+617
+00:20:30,720 --> 00:20:35,600
+already have my sql software on machine
+
+618
+00:20:33,280 --> 00:20:38,159
+so i already have one client also let me
+
+619
+00:20:35,600 --> 00:20:40,480
+just open my client my sql workbench is
+
+620
+00:20:38,159 --> 00:20:42,559
+my client application so i'm just
+
+621
+00:20:40,480 --> 00:20:44,880
+opening it
+
+622
+00:20:42,559 --> 00:20:46,960
+so once you open this application so
+
+623
+00:20:44,880 --> 00:20:48,400
+your client will be open and through
+
+624
+00:20:46,960 --> 00:20:49,840
+that client we will be able to connect
+
+625
+00:20:48,400 --> 00:20:51,360
+to the database
+
+626
+00:20:49,840 --> 00:20:53,360
+and whenever you want to connect to the
+
+627
+00:20:51,360 --> 00:20:54,559
+database you have to know the connection
+
+628
+00:20:53,360 --> 00:20:56,640
+details
+
+629
+00:20:54,559 --> 00:20:57,520
+even if you connect to manually or even
+
+630
+00:20:56,640 --> 00:20:59,440
+if you want to connect through
+
+631
+00:20:57,520 --> 00:21:01,679
+automation you have to know the
+
+632
+00:20:59,440 --> 00:21:03,440
+connection details of the database
+
+633
+00:21:01,679 --> 00:21:05,039
+so normally a database administrators
+
+634
+00:21:03,440 --> 00:21:07,360
+will provide you the connection details
+
+635
+00:21:05,039 --> 00:21:09,360
+through which you will able to connect
+
+636
+00:21:07,360 --> 00:21:11,200
+so i already saved my connection so if
+
+637
+00:21:09,360 --> 00:21:13,280
+you want to connect to the database from
+
+638
+00:21:11,200 --> 00:21:15,200
+the my sequel workbench
+
+639
+00:21:13,280 --> 00:21:18,240
+this is a manual process i just showing
+
+640
+00:21:15,200 --> 00:21:20,159
+you so here we need to take the database
+
+641
+00:21:18,240 --> 00:21:21,760
+and connect to database and here you can
+
+642
+00:21:20,159 --> 00:21:23,039
+just look at here
+
+643
+00:21:21,760 --> 00:21:24,159
+we need to provide the connection
+
+644
+00:21:23,039 --> 00:21:26,640
+details
+
+645
+00:21:24,159 --> 00:21:28,320
+so currently my escrows my sql is
+
+646
+00:21:26,640 --> 00:21:30,600
+available in my local machine itself so
+
+647
+00:21:28,320 --> 00:21:33,039
+i'm just providing the host name
+
+648
+00:21:30,600 --> 00:21:34,000
+127.0.0 is representing your local
+
+649
+00:21:33,039 --> 00:21:35,520
+mission
+
+650
+00:21:34,000 --> 00:21:38,000
+and if you don't know the iep you can
+
+651
+00:21:35,520 --> 00:21:40,000
+directly write a local host
+
+652
+00:21:38,000 --> 00:21:41,840
+and in the real environment so they will
+
+653
+00:21:40,000 --> 00:21:43,280
+provide you ip address of the machine so
+
+654
+00:21:41,840 --> 00:21:45,200
+you can provide the ip address of the
+
+655
+00:21:43,280 --> 00:21:46,960
+machine or name of the mission whatever
+
+656
+00:21:45,200 --> 00:21:48,640
+they provide you have to specify inside
+
+657
+00:21:46,960 --> 00:21:50,480
+the host name
+
+658
+00:21:48,640 --> 00:21:52,400
+and the second field is a port number so
+
+659
+00:21:50,480 --> 00:21:53,360
+every database will run on some port
+
+660
+00:21:52,400 --> 00:21:56,159
+number
+
+661
+00:21:53,360 --> 00:21:58,080
+if it is my sequel it will be 3306 if it
+
+662
+00:21:56,159 --> 00:22:00,000
+is oracle it can be one five two one or
+
+663
+00:21:58,080 --> 00:22:02,720
+one five two seven
+
+664
+00:22:00,000 --> 00:22:05,039
+okay and similarly if you go with mysql
+
+665
+00:22:02,720 --> 00:22:07,600
+server or any other databases they will
+
+666
+00:22:05,039 --> 00:22:09,520
+use some default port numbers
+
+667
+00:22:07,600 --> 00:22:12,320
+and uh on that particular port number
+
+668
+00:22:09,520 --> 00:22:14,320
+that are the database will run so here
+
+669
+00:22:12,320 --> 00:22:16,159
+you have to provide the username
+
+670
+00:22:14,320 --> 00:22:18,320
+and if there is a password you can also
+
+671
+00:22:16,159 --> 00:22:20,320
+provide the password
+
+672
+00:22:18,320 --> 00:22:22,400
+and at the time of installation i have
+
+673
+00:22:20,320 --> 00:22:24,559
+not provided i guess so
+
+674
+00:22:22,400 --> 00:22:26,480
+i think i have also password but i have
+
+675
+00:22:24,559 --> 00:22:28,480
+already saved the password in the store
+
+676
+00:22:26,480 --> 00:22:30,320
+involved so it is not asking for the
+
+677
+00:22:28,480 --> 00:22:32,080
+password every time
+
+678
+00:22:30,320 --> 00:22:33,520
+and as soon as you click on this ok so
+
+679
+00:22:32,080 --> 00:22:35,679
+which will able to connect to the
+
+680
+00:22:33,520 --> 00:22:37,520
+database
+
+681
+00:22:35,679 --> 00:22:38,799
+so it will automatically connect to the
+
+682
+00:22:37,520 --> 00:22:40,960
+database
+
+683
+00:22:38,799 --> 00:22:42,799
+now we can just look at here so as soon
+
+684
+00:22:40,960 --> 00:22:44,159
+as you open the database by default you
+
+685
+00:22:42,799 --> 00:22:45,520
+will see like this
+
+686
+00:22:44,159 --> 00:22:48,159
+so you will get by default some
+
+687
+00:22:45,520 --> 00:22:49,120
+databases like classic models my classic
+
+688
+00:22:48,159 --> 00:22:51,200
+models
+
+689
+00:22:49,120 --> 00:22:54,000
+cycle rcs world
+
+690
+00:22:51,200 --> 00:22:56,559
+okay so my flicks db so there are some
+
+691
+00:22:54,000 --> 00:22:58,400
+databases by default you will get along
+
+692
+00:22:56,559 --> 00:23:00,400
+with the mysql
+
+693
+00:22:58,400 --> 00:23:02,960
+so apart from that if you want to use
+
+694
+00:23:00,400 --> 00:23:05,200
+existing databases still you can use it
+
+695
+00:23:02,960 --> 00:23:07,200
+and which is also having some default
+
+696
+00:23:05,200 --> 00:23:08,480
+tables and here you can see customer
+
+697
+00:23:07,200 --> 00:23:10,080
+info is there
+
+698
+00:23:08,480 --> 00:23:12,159
+and in the world also there are some
+
+699
+00:23:10,080 --> 00:23:14,159
+tables are there city country jobs
+
+700
+00:23:12,159 --> 00:23:15,760
+location there are multiple tables are
+
+701
+00:23:14,159 --> 00:23:18,240
+there so like this every database is
+
+702
+00:23:15,760 --> 00:23:20,080
+having some default tables and if you
+
+703
+00:23:18,240 --> 00:23:22,080
+want to create your own database again
+
+704
+00:23:20,080 --> 00:23:23,760
+you can create your own database and you
+
+705
+00:23:22,080 --> 00:23:25,440
+can create your own tables and you can
+
+706
+00:23:23,760 --> 00:23:27,200
+populate some data in the table by
+
+707
+00:23:25,440 --> 00:23:29,039
+writing insert commands
+
+708
+00:23:27,200 --> 00:23:30,320
+so these are all prerequisites guys so
+
+709
+00:23:29,039 --> 00:23:31,600
+i'm not going to show you all these
+
+710
+00:23:30,320 --> 00:23:33,919
+things because it will take a lot of
+
+711
+00:23:31,600 --> 00:23:35,280
+time to explain these things so
+
+712
+00:23:33,919 --> 00:23:36,799
+go through the videos and you will
+
+713
+00:23:35,280 --> 00:23:38,640
+understand everything so i explained
+
+714
+00:23:36,799 --> 00:23:40,480
+everything in my videos okay how to
+
+715
+00:23:38,640 --> 00:23:42,559
+create the database how to create the
+
+716
+00:23:40,480 --> 00:23:44,880
+table how to insert the data in the how
+
+717
+00:23:42,559 --> 00:23:46,720
+to insert the sample data in the table
+
+718
+00:23:44,880 --> 00:23:49,039
+how to query the data from the table so
+
+719
+00:23:46,720 --> 00:23:51,120
+all the commands have explained uh in
+
+720
+00:23:49,039 --> 00:23:52,640
+sequentially so can go through them and
+
+721
+00:23:51,120 --> 00:23:55,360
+understand
+
+722
+00:23:52,640 --> 00:23:57,120
+now here in my db there are multiple
+
+723
+00:23:55,360 --> 00:23:59,200
+tables are there
+
+724
+00:23:57,120 --> 00:24:01,440
+okay so inside this i have one table
+
+725
+00:23:59,200 --> 00:24:03,520
+called student table i have
+
+726
+00:24:01,440 --> 00:24:04,400
+so i want to see the data of the student
+
+727
+00:24:03,520 --> 00:24:06,240
+table
+
+728
+00:24:04,400 --> 00:24:07,360
+so then i just want to open the sql
+
+729
+00:24:06,240 --> 00:24:09,360
+editor
+
+730
+00:24:07,360 --> 00:24:11,039
+and if i click on the corner icon this
+
+731
+00:24:09,360 --> 00:24:13,120
+will give an editor
+
+732
+00:24:11,039 --> 00:24:15,679
+so here i have to write a query or
+
+733
+00:24:13,120 --> 00:24:17,120
+statement by which we will able to
+
+734
+00:24:15,679 --> 00:24:18,400
+interact with the table so before
+
+735
+00:24:17,120 --> 00:24:20,640
+interacting the table you have to
+
+736
+00:24:18,400 --> 00:24:23,840
+connect to the database further we can
+
+737
+00:24:20,640 --> 00:24:25,600
+say use command use my db
+
+738
+00:24:23,840 --> 00:24:28,960
+so because there are so many databases
+
+739
+00:24:25,600 --> 00:24:31,039
+are there here on which db you want to
+
+740
+00:24:28,960 --> 00:24:32,480
+interact so we need to specify so i say
+
+741
+00:24:31,039 --> 00:24:34,000
+my db
+
+742
+00:24:32,480 --> 00:24:36,080
+so first command you have to execute
+
+743
+00:24:34,000 --> 00:24:38,480
+this and here the run option is there
+
+744
+00:24:36,080 --> 00:24:42,159
+when i execute this now it is currently
+
+745
+00:24:38,480 --> 00:24:43,840
+pointing to my db my db insert this what
+
+746
+00:24:42,159 --> 00:24:47,279
+does the table have here
+
+747
+00:24:43,840 --> 00:24:49,120
+i have one table called uh
+
+748
+00:24:47,279 --> 00:24:52,320
+i have one table called student so let
+
+749
+00:24:49,120 --> 00:24:53,279
+me ping the data so i say select
+
+750
+00:24:52,320 --> 00:24:55,600
+star
+
+751
+00:24:53,279 --> 00:24:57,360
+from student
+
+752
+00:24:55,600 --> 00:24:58,480
+and semicolon so when i execute this
+
+753
+00:24:57,360 --> 00:25:00,559
+command
+
+754
+00:24:58,480 --> 00:25:02,080
+this will give you the data which is
+
+755
+00:25:00,559 --> 00:25:03,919
+already available in the student table
+
+756
+00:25:02,080 --> 00:25:07,120
+so currently have only three records and
+
+757
+00:25:03,919 --> 00:25:08,720
+two columns so sies and s so these are
+
+758
+00:25:07,120 --> 00:25:11,120
+tables so like this we can print the
+
+759
+00:25:08,720 --> 00:25:12,320
+data from any table by using select a
+
+760
+00:25:11,120 --> 00:25:14,080
+command
+
+761
+00:25:12,320 --> 00:25:17,120
+so select is a retrieval command we can
+
+762
+00:25:14,080 --> 00:25:19,600
+retrieve the data from the database
+
+763
+00:25:17,120 --> 00:25:21,279
+right so this is a client application
+
+764
+00:25:19,600 --> 00:25:23,360
+and i already connected to the database
+
+765
+00:25:21,279 --> 00:25:24,720
+and i can you can see all the tables
+
+766
+00:25:23,360 --> 00:25:26,159
+which are already available and
+
+767
+00:25:24,720 --> 00:25:28,240
+whichever table data you want to see you
+
+768
+00:25:26,159 --> 00:25:30,640
+can just execute select star star means
+
+769
+00:25:28,240 --> 00:25:32,240
+what all the columns you will get
+
+770
+00:25:30,640 --> 00:25:34,720
+and if you want to get only specific
+
+771
+00:25:32,240 --> 00:25:37,440
+column specify the column name and
+
+772
+00:25:34,720 --> 00:25:39,279
+execute you will get only that specific
+
+773
+00:25:37,440 --> 00:25:41,279
+column so when i say star
+
+774
+00:25:39,279 --> 00:25:43,460
+which will match with all the columns
+
+775
+00:25:41,279 --> 00:25:44,960
+and display all the columns data here
+
+776
+00:25:43,460 --> 00:25:45,760
+[Music]
+
+777
+00:25:44,960 --> 00:25:48,159
+okay
+
+778
+00:25:45,760 --> 00:25:49,919
+so this is how we can just work with the
+
+779
+00:25:48,159 --> 00:25:50,799
+client applications
+
+780
+00:25:49,919 --> 00:25:52,559
+now
+
+781
+00:25:50,799 --> 00:25:54,320
+whatever suppose i want to insert the
+
+782
+00:25:52,559 --> 00:25:56,080
+new record in this table so then i have
+
+783
+00:25:54,320 --> 00:25:57,919
+to write insert query like this insert
+
+784
+00:25:56,080 --> 00:25:59,840
+into
+
+785
+00:25:57,919 --> 00:26:03,200
+so insert into
+
+786
+00:25:59,840 --> 00:26:04,720
+our table name is student and values
+
+787
+00:26:03,200 --> 00:26:06,159
+and here you have to specify let's say
+
+788
+00:26:04,720 --> 00:26:09,279
+one zero four
+
+789
+00:26:06,159 --> 00:26:10,960
+and a comma some x y z like this so you
+
+790
+00:26:09,279 --> 00:26:12,799
+have to specify that
+
+791
+00:26:10,960 --> 00:26:15,360
+i even execute this which will go and
+
+792
+00:26:12,799 --> 00:26:17,600
+insert the new record in the table
+
+793
+00:26:15,360 --> 00:26:19,200
+similarly if i want update so you can do
+
+794
+00:26:17,600 --> 00:26:20,000
+one more command
+
+795
+00:26:19,200 --> 00:26:22,000
+so
+
+796
+00:26:20,000 --> 00:26:23,440
+sql is not a case sensitive language you
+
+797
+00:26:22,000 --> 00:26:25,919
+can write all the queries in this
+
+798
+00:26:23,440 --> 00:26:28,000
+lowercase or uppercase characters
+
+799
+00:26:25,919 --> 00:26:29,440
+so update
+
+800
+00:26:28,000 --> 00:26:31,279
+student table
+
+801
+00:26:29,440 --> 00:26:32,720
+and what we need to update suppose i
+
+802
+00:26:31,279 --> 00:26:35,360
+want to update
+
+803
+00:26:32,720 --> 00:26:37,120
+uh 103 record with a different name i
+
+804
+00:26:35,360 --> 00:26:38,080
+want to change the name of the 103
+
+805
+00:26:37,120 --> 00:26:41,840
+record
+
+806
+00:26:38,080 --> 00:26:44,080
+so i can say update student set s id
+
+807
+00:26:41,840 --> 00:26:45,360
+offset s name
+
+808
+00:26:44,080 --> 00:26:46,480
+set s name
+
+809
+00:26:45,360 --> 00:26:49,039
+equal to
+
+810
+00:26:46,480 --> 00:26:51,279
+uh so and so let's say abc
+
+811
+00:26:49,039 --> 00:26:53,520
+and uh if i stop command like this what
+
+812
+00:26:51,279 --> 00:26:55,279
+happens which will update s name abc
+
+813
+00:26:53,520 --> 00:26:56,799
+with all the records
+
+814
+00:26:55,279 --> 00:26:58,640
+all the records i simply say update
+
+815
+00:26:56,799 --> 00:27:00,720
+student sets s name equal to abc means
+
+816
+00:26:58,640 --> 00:27:02,240
+which will update all the records but i
+
+817
+00:27:00,720 --> 00:27:03,840
+want to update only one zero three
+
+818
+00:27:02,240 --> 00:27:08,159
+record so we have to put one where
+
+819
+00:27:03,840 --> 00:27:09,760
+condition so where s id equal to 1 0 3
+
+820
+00:27:08,159 --> 00:27:11,600
+so when i execute this command which
+
+821
+00:27:09,760 --> 00:27:13,440
+will go and update the recording the
+
+822
+00:27:11,600 --> 00:27:14,240
+table directly
+
+823
+00:27:13,440 --> 00:27:16,640
+but
+
+824
+00:27:14,240 --> 00:27:18,240
+here i have it i'll i can get i can
+
+825
+00:27:16,640 --> 00:27:19,039
+execute all this command through client
+
+826
+00:27:18,240 --> 00:27:20,880
+here
+
+827
+00:27:19,039 --> 00:27:22,880
+but that's not my requirement i should
+
+828
+00:27:20,880 --> 00:27:26,320
+able to execute these commands through
+
+829
+00:27:22,880 --> 00:27:28,880
+my python code or python program
+
+830
+00:27:26,320 --> 00:27:30,480
+right so that's a our intention but
+
+831
+00:27:28,880 --> 00:27:32,240
+before that just for understanding
+
+832
+00:27:30,480 --> 00:27:33,360
+purpose i have shown you how to connect
+
+833
+00:27:32,240 --> 00:27:35,279
+to the client
+
+834
+00:27:33,360 --> 00:27:36,880
+and how to
+
+835
+00:27:35,279 --> 00:27:38,399
+represent the database and how to
+
+836
+00:27:36,880 --> 00:27:39,520
+execute the queries from the client
+
+837
+00:27:38,399 --> 00:27:41,600
+application
+
+838
+00:27:39,520 --> 00:27:44,320
+okay but all these things we are going
+
+839
+00:27:41,600 --> 00:27:46,240
+to do through python code
+
+840
+00:27:44,320 --> 00:27:48,720
+that's our intention okay
+
+841
+00:27:46,240 --> 00:27:51,279
+now let me just minimize it
+
+842
+00:27:48,720 --> 00:27:53,279
+now go back to the pie chart
+
+843
+00:27:51,279 --> 00:27:55,760
+so now we are going to first before
+
+844
+00:27:53,279 --> 00:27:57,600
+discussing about data driven testing we
+
+845
+00:27:55,760 --> 00:28:00,159
+have to know first we have to install
+
+846
+00:27:57,600 --> 00:28:01,279
+this connector and after that i'll show
+
+847
+00:28:00,159 --> 00:28:03,120
+you
+
+848
+00:28:01,279 --> 00:28:05,279
+a few operations like database
+
+849
+00:28:03,120 --> 00:28:07,440
+operations
+
+850
+00:28:05,279 --> 00:28:09,120
+database operations so mainly i will
+
+851
+00:28:07,440 --> 00:28:11,360
+focus on three commands
+
+852
+00:28:09,120 --> 00:28:12,799
+because we are not going to create or
+
+853
+00:28:11,360 --> 00:28:14,640
+delete all these things because there
+
+854
+00:28:12,799 --> 00:28:17,440
+are ddl commands
+
+855
+00:28:14,640 --> 00:28:19,520
+they will work on the tables not data so
+
+856
+00:28:17,440 --> 00:28:21,360
+mainly database operations will like
+
+857
+00:28:19,520 --> 00:28:23,600
+insertion
+
+858
+00:28:21,360 --> 00:28:25,200
+insert command
+
+859
+00:28:23,600 --> 00:28:27,360
+update
+
+860
+00:28:25,200 --> 00:28:28,799
+and delete
+
+861
+00:28:27,360 --> 00:28:30,720
+so these are the main database
+
+862
+00:28:28,799 --> 00:28:32,640
+operations along with the selector okay
+
+863
+00:28:30,720 --> 00:28:34,320
+select also we can use
+
+864
+00:28:32,640 --> 00:28:36,080
+so these are the four commands i'm going
+
+865
+00:28:34,320 --> 00:28:37,919
+to discuss
+
+866
+00:28:36,080 --> 00:28:39,520
+through python code how we can execute
+
+867
+00:28:37,919 --> 00:28:42,000
+these commands or how we can execute
+
+868
+00:28:39,520 --> 00:28:43,520
+this queries to python code so as a
+
+869
+00:28:42,000 --> 00:28:44,640
+prerequisite first of all we need to
+
+870
+00:28:43,520 --> 00:28:46,080
+install this
+
+871
+00:28:44,640 --> 00:28:48,000
+package
+
+872
+00:28:46,080 --> 00:28:49,760
+and if you are working with oracle then
+
+873
+00:28:48,000 --> 00:28:50,559
+the package will be different
+
+874
+00:28:49,760 --> 00:28:52,960
+okay
+
+875
+00:28:50,559 --> 00:28:54,880
+now go back to the pi champ
+
+876
+00:28:52,960 --> 00:28:56,480
+and how to install the package
+
+877
+00:28:54,880 --> 00:28:59,120
+so to install it we need to go to the
+
+878
+00:28:56,480 --> 00:29:01,520
+file again settings so all the packages
+
+879
+00:28:59,120 --> 00:29:03,039
+we have to install only here okay from
+
+880
+00:29:01,520 --> 00:29:04,799
+this location so go to your project
+
+881
+00:29:03,039 --> 00:29:06,720
+python interpreter now you can just look
+
+882
+00:29:04,799 --> 00:29:08,559
+at there are so many packages we already
+
+883
+00:29:06,720 --> 00:29:12,320
+installed earlier open by excel is also
+
+884
+00:29:08,559 --> 00:29:15,120
+there seal name is also there right and
+
+885
+00:29:12,320 --> 00:29:18,480
+uh now we are going to install
+
+886
+00:29:15,120 --> 00:29:20,480
+mysql connector so here just type mysql
+
+887
+00:29:18,480 --> 00:29:22,480
+so when i say my sql so you can see this
+
+888
+00:29:20,480 --> 00:29:25,200
+one connector mysql
+
+889
+00:29:22,480 --> 00:29:28,799
+connector iphone python so what is this
+
+890
+00:29:25,200 --> 00:29:30,399
+mysql driver written in python
+
+891
+00:29:28,799 --> 00:29:32,320
+okay so this is the connector we have to
+
+892
+00:29:30,399 --> 00:29:34,000
+install so just select it and click on
+
+893
+00:29:32,320 --> 00:29:35,600
+install package
+
+894
+00:29:34,000 --> 00:29:38,000
+and because i already installed this so
+
+895
+00:29:35,600 --> 00:29:39,760
+this is given in the blue color in your
+
+896
+00:29:38,000 --> 00:29:41,600
+case you can just select it
+
+897
+00:29:39,760 --> 00:29:43,440
+and then click on install package and
+
+898
+00:29:41,600 --> 00:29:46,080
+within the few seconds it will go and
+
+899
+00:29:43,440 --> 00:29:48,320
+install it and after closing this window
+
+900
+00:29:46,080 --> 00:29:50,399
+you will able to see the mysql connector
+
+901
+00:29:48,320 --> 00:29:52,559
+in this list
+
+902
+00:29:50,399 --> 00:29:54,880
+okay so once you have done this you can
+
+903
+00:29:52,559 --> 00:29:56,880
+just close a window now
+
+904
+00:29:54,880 --> 00:29:58,320
+you are ready to connect to the database
+
+905
+00:29:56,880 --> 00:30:00,399
+and you are ready to work with the
+
+906
+00:29:58,320 --> 00:30:02,799
+database tables
+
+907
+00:30:00,399 --> 00:30:04,799
+all right now let me show you the script
+
+908
+00:30:02,799 --> 00:30:07,679
+file first let me just create another
+
+909
+00:30:04,799 --> 00:30:08,399
+another directory
+
+910
+00:30:07,679 --> 00:30:11,039
+and
+
+911
+00:30:08,399 --> 00:30:13,039
+i say day 25
+
+912
+00:30:11,039 --> 00:30:14,960
+so before going to discuss actual data
+
+913
+00:30:13,039 --> 00:30:16,640
+driven testing we need to know
+
+914
+00:30:14,960 --> 00:30:18,720
+basic stuff like how to interact with
+
+915
+00:30:16,640 --> 00:30:20,960
+the database how can execute the queries
+
+916
+00:30:18,720 --> 00:30:23,120
+these things are very much required
+
+917
+00:30:20,960 --> 00:30:25,600
+all right so let me just create
+
+918
+00:30:23,120 --> 00:30:29,440
+a new python file
+
+919
+00:30:25,600 --> 00:30:31,679
+so i'll name it as uh db operations
+
+920
+00:30:29,440 --> 00:30:33,360
+db operations
+
+921
+00:30:31,679 --> 00:30:35,440
+now as soon as you created a file you
+
+922
+00:30:33,360 --> 00:30:37,120
+want to do the database operation so in
+
+923
+00:30:35,440 --> 00:30:39,520
+this insertion
+
+924
+00:30:37,120 --> 00:30:41,279
+and then update and then
+
+925
+00:30:39,520 --> 00:30:42,720
+delete so select i will show you in
+
+926
+00:30:41,279 --> 00:30:44,080
+another example
+
+927
+00:30:42,720 --> 00:30:45,440
+okay so because
+
+928
+00:30:44,080 --> 00:30:47,919
+there is a difference between these
+
+929
+00:30:45,440 --> 00:30:50,240
+commands so when i when i execute insert
+
+930
+00:30:47,919 --> 00:30:52,159
+update delete command it will go and
+
+931
+00:30:50,240 --> 00:30:53,760
+execute against the database and perform
+
+932
+00:30:52,159 --> 00:30:56,080
+the insertion updation and deletion
+
+933
+00:30:53,760 --> 00:30:57,600
+that's it only these commands will work
+
+934
+00:30:56,080 --> 00:30:59,440
+only one direction
+
+935
+00:30:57,600 --> 00:31:01,360
+but when you execute the select command
+
+936
+00:30:59,440 --> 00:31:03,360
+what happens the select command will
+
+937
+00:31:01,360 --> 00:31:06,000
+execute against the table and fetch the
+
+938
+00:31:03,360 --> 00:31:07,519
+data and also data will be returned
+
+939
+00:31:06,000 --> 00:31:09,200
+but rest of three commands will not
+
+940
+00:31:07,519 --> 00:31:11,279
+return anything for you it will just go
+
+941
+00:31:09,200 --> 00:31:13,039
+and update the data or it will just go
+
+942
+00:31:11,279 --> 00:31:15,360
+and insert the data or it will go and
+
+943
+00:31:13,039 --> 00:31:16,640
+just delete the data but the select is
+
+944
+00:31:15,360 --> 00:31:18,399
+not like that
+
+945
+00:31:16,640 --> 00:31:20,000
+when execute the select command which
+
+946
+00:31:18,399 --> 00:31:22,799
+will go and fetch the data from the
+
+947
+00:31:20,000 --> 00:31:24,559
+database table and return the data also
+
+948
+00:31:22,799 --> 00:31:26,559
+so we need to use some special classes
+
+949
+00:31:24,559 --> 00:31:28,399
+to hold the data and everything
+
+950
+00:31:26,559 --> 00:31:30,720
+so select is something different than
+
+951
+00:31:28,399 --> 00:31:32,799
+rest of three commands so let us see
+
+952
+00:31:30,720 --> 00:31:34,080
+first these three commands insert update
+
+953
+00:31:32,799 --> 00:31:35,039
+delete
+
+954
+00:31:34,080 --> 00:31:36,960
+go back
+
+955
+00:31:35,039 --> 00:31:38,240
+to the pi champ
+
+956
+00:31:36,960 --> 00:31:40,080
+so first we will see these three
+
+957
+00:31:38,240 --> 00:31:41,519
+commands so first of all what we need to
+
+958
+00:31:40,080 --> 00:31:42,480
+do is
+
+959
+00:31:41,519 --> 00:31:45,039
+so
+
+960
+00:31:42,480 --> 00:31:47,440
+we need to first import the mysql
+
+961
+00:31:45,039 --> 00:31:49,279
+connector model so how to import it
+
+962
+00:31:47,440 --> 00:31:51,039
+using import
+
+963
+00:31:49,279 --> 00:31:53,039
+say mysql
+
+964
+00:31:51,039 --> 00:31:53,919
+import mysql
+
+965
+00:31:53,039 --> 00:31:55,120
+dot
+
+966
+00:31:53,919 --> 00:31:56,640
+connector
+
+967
+00:31:55,120 --> 00:31:58,960
+okay so this is a package which we have
+
+968
+00:31:56,640 --> 00:32:00,720
+to import first step
+
+969
+00:31:58,960 --> 00:32:02,000
+now the second step
+
+970
+00:32:00,720 --> 00:32:04,320
+first we need to establish the
+
+971
+00:32:02,000 --> 00:32:06,880
+connection to the database so how to
+
+972
+00:32:04,320 --> 00:32:08,480
+establish the connection to the database
+
+973
+00:32:06,880 --> 00:32:09,760
+so we need to know the connection
+
+974
+00:32:08,480 --> 00:32:10,960
+details
+
+975
+00:32:09,760 --> 00:32:12,640
+so we need to know the connection
+
+976
+00:32:10,960 --> 00:32:15,519
+details like database
+
+977
+00:32:12,640 --> 00:32:17,360
+iep port number user password database
+
+978
+00:32:15,519 --> 00:32:19,600
+all these things we have to do
+
+979
+00:32:17,360 --> 00:32:21,679
+so to connect to the mysql database what
+
+980
+00:32:19,600 --> 00:32:22,960
+we need to do is we will
+
+981
+00:32:21,679 --> 00:32:25,039
+have one method inside the
+
+982
+00:32:22,960 --> 00:32:25,840
+mysql.connector
+
+983
+00:32:25,039 --> 00:32:28,480
+dot
+
+984
+00:32:25,840 --> 00:32:30,799
+there is a method called connector okay
+
+985
+00:32:28,480 --> 00:32:32,320
+this is a method and uh this particular
+
+986
+00:32:30,799 --> 00:32:34,799
+connect method will connect to the
+
+987
+00:32:32,320 --> 00:32:37,039
+database based on the connection details
+
+988
+00:32:34,799 --> 00:32:39,360
+which we provided but how to provide the
+
+989
+00:32:37,039 --> 00:32:42,399
+connection details exactly we follow the
+
+990
+00:32:39,360 --> 00:32:44,960
+syntax so what is the syntax we have to
+
+991
+00:32:42,399 --> 00:32:47,679
+specify the multiple parameters
+
+992
+00:32:44,960 --> 00:32:49,519
+so host name is localhost
+
+993
+00:32:47,679 --> 00:32:51,600
+localhost or ip address also we can
+
+994
+00:32:49,519 --> 00:32:53,360
+specify if a database is there in the
+
+995
+00:32:51,600 --> 00:32:54,840
+remote machines
+
+996
+00:32:53,360 --> 00:32:58,399
+and then port
+
+997
+00:32:54,840 --> 00:33:00,640
+number and a username password and
+
+998
+00:32:58,399 --> 00:33:02,320
+database name because there are multiple
+
+999
+00:33:00,640 --> 00:33:04,960
+databases are there so i just want to
+
+1000
+00:33:02,320 --> 00:33:07,519
+work with the mydb so i've just provided
+
+1001
+00:33:04,960 --> 00:33:09,760
+mydb here and user is a root and
+
+1002
+00:33:07,519 --> 00:33:11,440
+password is also root i'm given
+
+1003
+00:33:09,760 --> 00:33:13,440
+so these username and password you will
+
+1004
+00:33:11,440 --> 00:33:15,840
+provide at the time of installation the
+
+1005
+00:33:13,440 --> 00:33:17,120
+same username and password you can still
+
+1006
+00:33:15,840 --> 00:33:19,440
+use it
+
+1007
+00:33:17,120 --> 00:33:21,519
+so now by using these details and these
+
+1008
+00:33:19,440 --> 00:33:23,440
+are the keywords host is a keyword port
+
+1009
+00:33:21,519 --> 00:33:26,159
+is a keyword user is a keyword password
+
+1010
+00:33:23,440 --> 00:33:27,919
+is also keyword database is also keyword
+
+1011
+00:33:26,159 --> 00:33:30,880
+you should not change them
+
+1012
+00:33:27,919 --> 00:33:32,399
+so by using this connection details
+
+1013
+00:33:30,880 --> 00:33:34,559
+this particular connect method will
+
+1014
+00:33:32,399 --> 00:33:36,799
+connect to the database
+
+1015
+00:33:34,559 --> 00:33:38,799
+and we will store that connection in a
+
+1016
+00:33:36,799 --> 00:33:40,000
+variable i'll create one variable called
+
+1017
+00:33:38,799 --> 00:33:41,840
+con
+
+1018
+00:33:40,000 --> 00:33:43,840
+and which is representing a connection
+
+1019
+00:33:41,840 --> 00:33:45,519
+object so basically which will return a
+
+1020
+00:33:43,840 --> 00:33:47,279
+connection object after successful
+
+1021
+00:33:45,519 --> 00:33:48,960
+correction is happen
+
+1022
+00:33:47,279 --> 00:33:51,679
+and that connection
+
+1023
+00:33:48,960 --> 00:33:53,519
+we are going to store here
+
+1024
+00:33:51,679 --> 00:33:55,840
+so normally what happens is let's say
+
+1025
+00:33:53,519 --> 00:33:57,679
+this is my database
+
+1026
+00:33:55,840 --> 00:33:59,919
+and this is my python code here i'm
+
+1027
+00:33:57,679 --> 00:34:02,080
+writing the python code and our python
+
+1028
+00:33:59,919 --> 00:34:03,919
+code is acting as a client
+
+1029
+00:34:02,080 --> 00:34:06,240
+okay our python code is acting as a
+
+1030
+00:34:03,919 --> 00:34:08,079
+client now because we are connecting
+
+1031
+00:34:06,240 --> 00:34:10,159
+through python code we are sending all
+
+1032
+00:34:08,079 --> 00:34:12,480
+queries through python code so our
+
+1033
+00:34:10,159 --> 00:34:14,159
+python code is acting as a client
+
+1034
+00:34:12,480 --> 00:34:16,079
+so before working with the database we
+
+1035
+00:34:14,159 --> 00:34:17,599
+have to establish the connection between
+
+1036
+00:34:16,079 --> 00:34:20,639
+these two so the connection is
+
+1037
+00:34:17,599 --> 00:34:23,119
+established by using this command
+
+1038
+00:34:20,639 --> 00:34:24,560
+and what is the next thing we have to do
+
+1039
+00:34:23,119 --> 00:34:26,399
+we have to
+
+1040
+00:34:24,560 --> 00:34:28,480
+create a statement first we have to
+
+1041
+00:34:26,399 --> 00:34:31,440
+create one statement or we have to
+
+1042
+00:34:28,480 --> 00:34:33,520
+create one query and that statement we
+
+1043
+00:34:31,440 --> 00:34:34,960
+have to execute
+
+1044
+00:34:33,520 --> 00:34:36,240
+we have to execute through this
+
+1045
+00:34:34,960 --> 00:34:37,839
+connection
+
+1046
+00:34:36,240 --> 00:34:39,599
+okay so we have to execute this
+
+1047
+00:34:37,839 --> 00:34:41,359
+statement through this connection but we
+
+1048
+00:34:39,599 --> 00:34:42,960
+cannot directly execute this statement
+
+1049
+00:34:41,359 --> 00:34:45,359
+through this connection
+
+1050
+00:34:42,960 --> 00:34:47,280
+so we have to create something called
+
+1051
+00:34:45,359 --> 00:34:50,159
+cursor which is a basically a buffer
+
+1052
+00:34:47,280 --> 00:34:52,320
+area or temporary memory we can say
+
+1053
+00:34:50,159 --> 00:34:54,960
+so what you will do is with this
+
+1054
+00:34:52,320 --> 00:34:56,960
+connection we will create a cursor
+
+1055
+00:34:54,960 --> 00:34:58,720
+and through this cursor we will execute
+
+1056
+00:34:56,960 --> 00:35:00,640
+the statement
+
+1057
+00:34:58,720 --> 00:35:05,240
+okay so let me just show you step by
+
+1058
+00:35:00,640 --> 00:35:05,240
+step process so here
+
+1059
+00:36:40,880 --> 00:36:44,400
+so
+
+1060
+00:36:41,760 --> 00:36:44,400
+once again
+
+1061
+00:36:46,320 --> 00:36:51,200
+so this is a connection we have
+
+1062
+00:36:48,160 --> 00:36:53,760
+established and we created one cursor
+
+1063
+00:36:51,200 --> 00:36:56,480
+right and through this cursor we have to
+
+1064
+00:36:53,760 --> 00:36:58,320
+call one method called executor
+
+1065
+00:36:56,480 --> 00:37:00,240
+so through this execute method we will
+
+1066
+00:36:58,320 --> 00:37:01,520
+able to execute the statement insertion
+
+1067
+00:37:00,240 --> 00:37:03,119
+command
+
+1068
+00:37:01,520 --> 00:37:06,000
+so what the statement will do this will
+
+1069
+00:37:03,119 --> 00:37:08,000
+go and insert the record in the table
+
+1070
+00:37:06,000 --> 00:37:09,599
+and as soon as this transaction is done
+
+1071
+00:37:08,000 --> 00:37:11,520
+so insertion updation deletion
+
+1072
+00:37:09,599 --> 00:37:14,160
+everything is a transaction right
+
+1073
+00:37:11,520 --> 00:37:16,400
+as soon as we executed any dml command
+
+1074
+00:37:14,160 --> 00:37:18,160
+the transaction will not be permanently
+
+1075
+00:37:16,400 --> 00:37:19,359
+available so the transaction will not be
+
+1076
+00:37:18,160 --> 00:37:21,280
+permanent
+
+1077
+00:37:19,359 --> 00:37:23,359
+but we need to commit the transaction so
+
+1078
+00:37:21,280 --> 00:37:24,720
+whenever you execute any dml commands we
+
+1079
+00:37:23,359 --> 00:37:26,560
+have to execute a commit command
+
+1080
+00:37:24,720 --> 00:37:29,280
+immediately otherwise the transaction
+
+1081
+00:37:26,560 --> 00:37:31,440
+data will not be permanent in the table
+
+1082
+00:37:29,280 --> 00:37:33,119
+so for that i can execute one more
+
+1083
+00:37:31,440 --> 00:37:34,320
+command
+
+1084
+00:37:33,119 --> 00:37:36,880
+okay and
+
+1085
+00:37:34,320 --> 00:37:38,000
+by using connection object i can execute
+
+1086
+00:37:36,880 --> 00:37:39,839
+commit
+
+1087
+00:37:38,000 --> 00:37:41,839
+there is a connect commit command so
+
+1088
+00:37:39,839 --> 00:37:44,560
+this command will make the
+
+1089
+00:37:41,839 --> 00:37:46,079
+commit the transaction so basically this
+
+1090
+00:37:44,560 --> 00:37:47,280
+particular statement will create a
+
+1091
+00:37:46,079 --> 00:37:50,320
+cursor
+
+1092
+00:37:47,280 --> 00:37:52,560
+and this particular statement will exude
+
+1093
+00:37:50,320 --> 00:37:53,440
+a query through cursor
+
+1094
+00:37:52,560 --> 00:37:55,520
+and
+
+1095
+00:37:53,440 --> 00:37:56,960
+this particular command will commit the
+
+1096
+00:37:55,520 --> 00:37:59,280
+transaction
+
+1097
+00:37:56,960 --> 00:38:01,680
+and once we have done it our job is over
+
+1098
+00:37:59,280 --> 00:38:03,680
+then finally whatever connection we have
+
+1099
+00:38:01,680 --> 00:38:05,599
+opened here we have to close the
+
+1100
+00:38:03,680 --> 00:38:07,920
+connection connection dot
+
+1101
+00:38:05,599 --> 00:38:11,200
+close
+
+1102
+00:38:07,920 --> 00:38:13,040
+that's it only five lines of code
+
+1103
+00:38:11,200 --> 00:38:14,640
+so this is the beauty of the python so
+
+1104
+00:38:13,040 --> 00:38:16,640
+if you want to write the same program in
+
+1105
+00:38:14,640 --> 00:38:18,720
+java at least 20 lines of code we have
+
+1106
+00:38:16,640 --> 00:38:20,880
+to write 20 plus lines of code we have
+
+1107
+00:38:18,720 --> 00:38:23,200
+to write in java
+
+1108
+00:38:20,880 --> 00:38:24,640
+so here it is very very simple so just
+
+1109
+00:38:23,200 --> 00:38:27,119
+we establish the connection to the
+
+1110
+00:38:24,640 --> 00:38:29,280
+database and we created the cursor which
+
+1111
+00:38:27,119 --> 00:38:31,599
+is actually temporary memory through
+
+1112
+00:38:29,280 --> 00:38:33,599
+that we have executed the insert query
+
+1113
+00:38:31,599 --> 00:38:35,119
+and commit the transaction and close the
+
+1114
+00:38:33,599 --> 00:38:36,720
+connection
+
+1115
+00:38:35,119 --> 00:38:39,119
+and after that i will just print some
+
+1116
+00:38:36,720 --> 00:38:41,440
+confirmation message i say print
+
+1117
+00:38:39,119 --> 00:38:43,200
+i say finished
+
+1118
+00:38:41,440 --> 00:38:45,440
+over
+
+1119
+00:38:43,200 --> 00:38:48,000
+let's execute and see what will happen
+
+1120
+00:38:45,440 --> 00:38:49,359
+so currently in the table i have only
+
+1121
+00:38:48,000 --> 00:38:51,200
+three records
+
+1122
+00:38:49,359 --> 00:38:53,440
+now i'm executing this code and see what
+
+1123
+00:38:51,200 --> 00:38:55,599
+happens when executing this
+
+1124
+00:38:53,440 --> 00:38:57,200
+so completely done finished now can go
+
+1125
+00:38:55,599 --> 00:38:59,119
+back to the client
+
+1126
+00:38:57,200 --> 00:39:01,760
+and uh you can execute the statement
+
+1127
+00:38:59,119 --> 00:39:05,040
+select star from student and see
+
+1128
+00:39:01,760 --> 00:39:06,880
+the new record is inserted in the table
+
+1129
+00:39:05,040 --> 00:39:08,720
+so we have not inserted through this
+
+1130
+00:39:06,880 --> 00:39:11,040
+client okay so we have not executed
+
+1131
+00:39:08,720 --> 00:39:13,680
+these commands here we have executed
+
+1132
+00:39:11,040 --> 00:39:15,839
+insert command through python code from
+
+1133
+00:39:13,680 --> 00:39:19,440
+here
+
+1134
+00:39:15,839 --> 00:39:21,440
+okay so insertion is successfully done
+
+1135
+00:39:19,440 --> 00:39:23,920
+similarly we can just change the query
+
+1136
+00:39:21,440 --> 00:39:25,839
+here same code for updation deletion
+
+1137
+00:39:23,920 --> 00:39:27,760
+selection everything whatever command
+
+1138
+00:39:25,839 --> 00:39:30,000
+you want to execute you can just keep
+
+1139
+00:39:27,760 --> 00:39:32,320
+that command statement or sql statement
+
+1140
+00:39:30,000 --> 00:39:33,920
+inside this double quotation and that is
+
+1141
+00:39:32,320 --> 00:39:36,400
+the command which is automatically
+
+1142
+00:39:33,920 --> 00:39:38,079
+execute against the database
+
+1143
+00:39:36,400 --> 00:39:39,920
+so now i'm going to show you
+
+1144
+00:39:38,079 --> 00:39:42,480
+update and delete operation so instead
+
+1145
+00:39:39,920 --> 00:39:45,040
+of writing this whole query here
+
+1146
+00:39:42,480 --> 00:39:47,200
+what i will do is i will just create all
+
+1147
+00:39:45,040 --> 00:39:51,119
+the query statements here
+
+1148
+00:39:47,200 --> 00:39:53,920
+okay so i will name it as
+
+1149
+00:39:51,119 --> 00:39:55,839
+insert underscore query i'm just giving
+
+1150
+00:39:53,920 --> 00:39:57,680
+some name to this insert underscore
+
+1151
+00:39:55,839 --> 00:39:59,920
+query so this insert query i will
+
+1152
+00:39:57,680 --> 00:40:01,280
+specify here
+
+1153
+00:39:59,920 --> 00:40:02,400
+okay so instead of writing the whole
+
+1154
+00:40:01,280 --> 00:40:04,079
+statement
+
+1155
+00:40:02,400 --> 00:40:06,800
+and similarly i will write one more
+
+1156
+00:40:04,079 --> 00:40:08,319
+statement for update query update query
+
+1157
+00:40:06,800 --> 00:40:09,680
+i'm just storing the queries in some
+
+1158
+00:40:08,319 --> 00:40:11,359
+other variables
+
+1159
+00:40:09,680 --> 00:40:13,440
+instead of writing the whole thing every
+
+1160
+00:40:11,359 --> 00:40:15,520
+time in this box okay so update query if
+
+1161
+00:40:13,440 --> 00:40:17,200
+you want to update the record what is
+
+1162
+00:40:15,520 --> 00:40:18,880
+the command we have to execute
+
+1163
+00:40:17,200 --> 00:40:20,480
+this is a command
+
+1164
+00:40:18,880 --> 00:40:22,720
+so i will put in the double quotations
+
+1165
+00:40:20,480 --> 00:40:23,520
+and store this so update student set s
+
+1166
+00:40:22,720 --> 00:40:25,680
+name
+
+1167
+00:40:23,520 --> 00:40:27,920
+so previously what is the name of the
+
+1168
+00:40:25,680 --> 00:40:30,880
+104 kim is there
+
+1169
+00:40:27,920 --> 00:40:33,839
+kim is a name right so i want to just
+
+1170
+00:40:30,880 --> 00:40:36,880
+change the name of the 104 record
+
+1171
+00:40:33,839 --> 00:40:38,800
+so what i can do is i can simply say
+
+1172
+00:40:36,880 --> 00:40:40,560
+meri okay so
+
+1173
+00:40:38,800 --> 00:40:41,760
+update student set test name equal to
+
+1174
+00:40:40,560 --> 00:40:44,640
+mary
+
+1175
+00:40:41,760 --> 00:40:46,079
+it can be a single quote or mostly it is
+
+1176
+00:40:44,640 --> 00:40:47,680
+single quote
+
+1177
+00:40:46,079 --> 00:40:49,520
+because double quotations inside the
+
+1178
+00:40:47,680 --> 00:40:52,480
+double quotations are not allowed so
+
+1179
+00:40:49,520 --> 00:40:53,520
+single quotation where sed equal to one
+
+1180
+00:40:52,480 --> 00:40:54,400
+zero
+
+1181
+00:40:53,520 --> 00:40:56,640
+four
+
+1182
+00:40:54,400 --> 00:40:57,920
+because one zero four only we want to
+
+1183
+00:40:56,640 --> 00:40:59,440
+update so
+
+1184
+00:40:57,920 --> 00:41:00,720
+update s name
+
+1185
+00:40:59,440 --> 00:41:03,280
+mary
+
+1186
+00:41:00,720 --> 00:41:05,200
+whose s id is one zero four
+
+1187
+00:41:03,280 --> 00:41:06,800
+now go back and this is update query so
+
+1188
+00:41:05,200 --> 00:41:08,560
+now i want to execute update query
+
+1189
+00:41:06,800 --> 00:41:11,359
+through this program just install insert
+
+1190
+00:41:08,560 --> 00:41:12,800
+query just i'm changing update query
+
+1191
+00:41:11,359 --> 00:41:14,640
+same thing again connection will open
+
+1192
+00:41:12,800 --> 00:41:16,079
+cursor will create execute the statement
+
+1193
+00:41:14,640 --> 00:41:18,079
+commit the transaction close the
+
+1194
+00:41:16,079 --> 00:41:21,359
+connection finished
+
+1195
+00:41:18,079 --> 00:41:23,920
+so now execute so previously we have
+
+1196
+00:41:21,359 --> 00:41:24,960
+kim 104 record is a kim
+
+1197
+00:41:23,920 --> 00:41:26,560
+now
+
+1198
+00:41:24,960 --> 00:41:28,960
+execute this
+
+1199
+00:41:26,560 --> 00:41:31,440
+and after completion now we can go back
+
+1200
+00:41:28,960 --> 00:41:35,040
+and see the select star from student
+
+1201
+00:41:31,440 --> 00:41:37,280
+now the 104 is updated as a mary
+
+1202
+00:41:35,040 --> 00:41:38,560
+so like this we can execute the update
+
+1203
+00:41:37,280 --> 00:41:40,640
+commander
+
+1204
+00:41:38,560 --> 00:41:42,400
+now i want to remove the records not
+
+1205
+00:41:40,640 --> 00:41:44,319
+only the one zero four you can work with
+
+1206
+00:41:42,400 --> 00:41:46,079
+any uh records
+
+1207
+00:41:44,319 --> 00:41:47,680
+and you can just update one zero one
+
+1208
+00:41:46,079 --> 00:41:49,760
+also one zero two one zero three or
+
+1209
+00:41:47,680 --> 00:41:51,760
+similarly you can delete any record
+
+1210
+00:41:49,760 --> 00:41:53,920
+okay so now i want to delete fourth
+
+1211
+00:41:51,760 --> 00:41:56,000
+record one zero four record so then i
+
+1212
+00:41:53,920 --> 00:41:58,000
+can write one more query delete
+
+1213
+00:41:56,000 --> 00:41:59,200
+underscore query
+
+1214
+00:41:58,000 --> 00:42:01,040
+equal to
+
+1215
+00:41:59,200 --> 00:42:02,640
+and how to delete the specific record
+
+1216
+00:42:01,040 --> 00:42:05,200
+from the database
+
+1217
+00:42:02,640 --> 00:42:06,960
+so this is a query we have to write i
+
+1218
+00:42:05,200 --> 00:42:08,079
+say delete
+
+1219
+00:42:06,960 --> 00:42:09,839
+from
+
+1220
+00:42:08,079 --> 00:42:12,560
+table name students
+
+1221
+00:42:09,839 --> 00:42:15,040
+student where we have to specify
+
+1222
+00:42:12,560 --> 00:42:17,040
+sid equal if i just leave the command
+
+1223
+00:42:15,040 --> 00:42:18,640
+till here what will happen
+
+1224
+00:42:17,040 --> 00:42:20,319
+delete from student which will delete
+
+1225
+00:42:18,640 --> 00:42:21,680
+all the records from the table
+
+1226
+00:42:20,319 --> 00:42:23,440
+but i don't want to delete all the
+
+1227
+00:42:21,680 --> 00:42:25,839
+records i just want to delete only
+
+1228
+00:42:23,440 --> 00:42:28,240
+fourth record one zero four record so we
+
+1229
+00:42:25,839 --> 00:42:31,599
+have to put one condition where
+
+1230
+00:42:28,240 --> 00:42:33,599
+s id equal to one zero four
+
+1231
+00:42:31,599 --> 00:42:35,520
+so when execute this query this will go
+
+1232
+00:42:33,599 --> 00:42:37,520
+and delete the record from the table now
+
+1233
+00:42:35,520 --> 00:42:39,599
+i just want to execute that query
+
+1234
+00:42:37,520 --> 00:42:42,000
+through our python code
+
+1235
+00:42:39,599 --> 00:42:43,359
+so this semicolon is optional so we're
+
+1236
+00:42:42,000 --> 00:42:46,560
+not required so you can just pass the
+
+1237
+00:42:43,359 --> 00:42:48,720
+delete query here
+
+1238
+00:42:46,560 --> 00:42:51,599
+okay so now delete query will execute so
+
+1239
+00:42:48,720 --> 00:42:53,760
+let's execute now
+
+1240
+00:42:51,599 --> 00:42:55,520
+so it is done so now go back
+
+1241
+00:42:53,760 --> 00:42:57,280
+and previously we have four records now
+
+1242
+00:42:55,520 --> 00:42:58,720
+execute this command again select star
+
+1243
+00:42:57,280 --> 00:43:00,800
+from student
+
+1244
+00:42:58,720 --> 00:43:04,480
+now again it becomes a one zero three so
+
+1245
+00:43:00,800 --> 00:43:06,960
+one zero four record is got deleted
+
+1246
+00:43:04,480 --> 00:43:07,920
+okay so this is how we can just work
+
+1247
+00:43:06,960 --> 00:43:10,880
+with the
+
+1248
+00:43:07,920 --> 00:43:12,480
+basic operation like insert update and
+
+1249
+00:43:10,880 --> 00:43:14,000
+delete the data from the
+
+1250
+00:43:12,480 --> 00:43:16,720
+tables
+
+1251
+00:43:14,000 --> 00:43:18,480
+now when i execute this code
+
+1252
+00:43:16,720 --> 00:43:20,960
+this is fine perfectly fine sometimes
+
+1253
+00:43:18,480 --> 00:43:22,240
+what happen is suppose your database is
+
+1254
+00:43:20,960 --> 00:43:23,920
+down
+
+1255
+00:43:22,240 --> 00:43:26,480
+okay suppose your database is down
+
+1256
+00:43:23,920 --> 00:43:28,160
+somehow database is restarting
+
+1257
+00:43:26,480 --> 00:43:30,240
+then what happens at that time if you
+
+1258
+00:43:28,160 --> 00:43:32,560
+run your code then what happens
+
+1259
+00:43:30,240 --> 00:43:34,079
+so this particular statement will throw
+
+1260
+00:43:32,560 --> 00:43:35,599
+the exceptions
+
+1261
+00:43:34,079 --> 00:43:37,280
+because this statement only will
+
+1262
+00:43:35,599 --> 00:43:38,560
+establish a connection to the database
+
+1263
+00:43:37,280 --> 00:43:40,880
+at the time of connecting to the
+
+1264
+00:43:38,560 --> 00:43:44,000
+database if the database is not
+
+1265
+00:43:40,880 --> 00:43:46,319
+available or the database is down or
+
+1266
+00:43:44,000 --> 00:43:48,560
+database is restarting in those
+
+1267
+00:43:46,319 --> 00:43:50,400
+situations what happens this will throw
+
+1268
+00:43:48,560 --> 00:43:52,000
+the exception connection error which
+
+1269
+00:43:50,400 --> 00:43:54,800
+will return
+
+1270
+00:43:52,000 --> 00:43:57,200
+but we we should able to handle that
+
+1271
+00:43:54,800 --> 00:43:59,760
+even though the database is down our
+
+1272
+00:43:57,200 --> 00:44:02,319
+program should display connection is
+
+1273
+00:43:59,760 --> 00:44:03,920
+unsuccessful or database is down so like
+
+1274
+00:44:02,319 --> 00:44:06,400
+that our program should display the
+
+1275
+00:44:03,920 --> 00:44:09,599
+message instead of getting an error
+
+1276
+00:44:06,400 --> 00:44:11,920
+okay so let me just uh uh do some wrong
+
+1277
+00:44:09,599 --> 00:44:14,000
+uh some i just give instead of i cannot
+
+1278
+00:44:11,920 --> 00:44:15,599
+make the database connection down but
+
+1279
+00:44:14,000 --> 00:44:17,839
+instead what i can do is i can change
+
+1280
+00:44:15,599 --> 00:44:21,280
+the connection details so i'll say uh
+
+1281
+00:44:17,839 --> 00:44:22,880
+instead of 3d 0 6 i say 7
+
+1282
+00:44:21,280 --> 00:44:24,720
+okay so connection details are wrong so
+
+1283
+00:44:22,880 --> 00:44:27,040
+with this data there is no database
+
+1284
+00:44:24,720 --> 00:44:29,760
+available as of now so when you run this
+
+1285
+00:44:27,040 --> 00:44:31,920
+code what happens is which will
+
+1286
+00:44:29,760 --> 00:44:33,520
+throw an error now we can just look at
+
+1287
+00:44:31,920 --> 00:44:35,119
+here it will basically throw the
+
+1288
+00:44:33,520 --> 00:44:37,599
+connection error interface error like
+
+1289
+00:44:35,119 --> 00:44:40,400
+this no connection could be made
+
+1290
+00:44:37,599 --> 00:44:42,560
+no connection could be made
+
+1291
+00:44:40,400 --> 00:44:44,000
+okay so this will happen
+
+1292
+00:44:42,560 --> 00:44:45,920
+in many scenarios sometimes your
+
+1293
+00:44:44,000 --> 00:44:48,319
+database is down or sometimes your
+
+1294
+00:44:45,920 --> 00:44:49,920
+database is restarting or even the
+
+1295
+00:44:48,319 --> 00:44:51,599
+database is available your connection
+
+1296
+00:44:49,920 --> 00:44:54,160
+details are not correct
+
+1297
+00:44:51,599 --> 00:44:56,000
+so in those cases you may have see these
+
+1298
+00:44:54,160 --> 00:44:57,280
+kind of issues so in that case what you
+
+1299
+00:44:56,000 --> 00:44:59,599
+can do is
+
+1300
+00:44:57,280 --> 00:45:00,720
+if your connection is not successful for
+
+1301
+00:44:59,599 --> 00:45:02,640
+example
+
+1302
+00:45:00,720 --> 00:45:04,720
+i just want to
+
+1303
+00:45:02,640 --> 00:45:07,200
+exit my code
+
+1304
+00:45:04,720 --> 00:45:09,359
+instead of giving an error okay i just
+
+1305
+00:45:07,200 --> 00:45:10,720
+want to tell okay database is not
+
+1306
+00:45:09,359 --> 00:45:12,720
+available or connection is not
+
+1307
+00:45:10,720 --> 00:45:14,880
+established and
+
+1308
+00:45:12,720 --> 00:45:16,960
+smoothly i want to exist from the code
+
+1309
+00:45:14,880 --> 00:45:19,119
+so for that what you have to do
+
+1310
+00:45:16,960 --> 00:45:20,560
+what is the concept you have to use here
+
+1311
+00:45:19,119 --> 00:45:22,800
+to handle that
+
+1312
+00:45:20,560 --> 00:45:25,680
+exception handling concept
+
+1313
+00:45:22,800 --> 00:45:27,520
+exception handling concept okay now what
+
+1314
+00:45:25,680 --> 00:45:30,000
+i'll do is i'll put the whole code
+
+1315
+00:45:27,520 --> 00:45:31,839
+inside the try block
+
+1316
+00:45:30,000 --> 00:45:33,520
+okay so i'll put everything inside the
+
+1317
+00:45:31,839 --> 00:45:35,599
+try block
+
+1318
+00:45:33,520 --> 00:45:37,839
+now if there is any exception is occur
+
+1319
+00:45:35,599 --> 00:45:39,520
+in these statements and then by using
+
+1320
+00:45:37,839 --> 00:45:40,960
+accept block
+
+1321
+00:45:39,520 --> 00:45:42,319
+i will handle it
+
+1322
+00:45:40,960 --> 00:45:43,839
+and here no need to specify any
+
+1323
+00:45:42,319 --> 00:45:45,440
+exception just accept block will
+
+1324
+00:45:43,839 --> 00:45:47,760
+automatically handle all kinds of
+
+1325
+00:45:45,440 --> 00:45:50,079
+exception but here i will provide some
+
+1326
+00:45:47,760 --> 00:45:51,920
+message to the user what is that
+
+1327
+00:45:50,079 --> 00:45:54,920
+connection
+
+1328
+00:45:51,920 --> 00:45:54,920
+unsuccessful
+
+1329
+00:45:55,280 --> 00:45:59,359
+okay connection unsuccessful i just
+
+1330
+00:45:57,680 --> 00:46:00,480
+provide some message to the user like
+
+1331
+00:45:59,359 --> 00:46:02,720
+this
+
+1332
+00:46:00,480 --> 00:46:05,040
+right so now observe this if i handle
+
+1333
+00:46:02,720 --> 00:46:06,640
+this block what happens even though
+
+1334
+00:46:05,040 --> 00:46:08,880
+sometimes your database connection is
+
+1335
+00:46:06,640 --> 00:46:11,119
+not established your script will not
+
+1336
+00:46:08,880 --> 00:46:13,440
+fail it will just tell you connection is
+
+1337
+00:46:11,119 --> 00:46:15,040
+unsuccessful that's it so let me just
+
+1338
+00:46:13,440 --> 00:46:16,880
+see some
+
+1339
+00:46:15,040 --> 00:46:18,000
+data invalid data now you can just look
+
+1340
+00:46:16,880 --> 00:46:20,240
+at this
+
+1341
+00:46:18,000 --> 00:46:22,160
+it will just tell you connection is
+
+1342
+00:46:20,240 --> 00:46:24,960
+unsuccessful
+
+1343
+00:46:22,160 --> 00:46:26,960
+but you will not get any error like this
+
+1344
+00:46:24,960 --> 00:46:28,560
+so when you're working with the database
+
+1345
+00:46:26,960 --> 00:46:30,800
+connections and everything so this is
+
+1346
+00:46:28,560 --> 00:46:34,079
+how we need to follow
+
+1347
+00:46:30,800 --> 00:46:36,960
+okay so this is how we need to follow
+
+1348
+00:46:34,079 --> 00:46:38,640
+so try and accept block
+
+1349
+00:46:36,960 --> 00:46:40,800
+so with this we have seen three
+
+1350
+00:46:38,640 --> 00:46:42,800
+different type of operations insertion
+
+1351
+00:46:40,800 --> 00:46:43,839
+updation and deletion how to perform the
+
+1352
+00:46:42,800 --> 00:46:46,319
+insertion
+
+1353
+00:46:43,839 --> 00:46:48,079
+how to perform the update and delete
+
+1354
+00:46:46,319 --> 00:46:50,240
+and not only these three command guides
+
+1355
+00:46:48,079 --> 00:46:52,880
+so whatever commands i have listed here
+
+1356
+00:46:50,240 --> 00:46:54,720
+all the commands we can execute
+
+1357
+00:46:52,880 --> 00:46:57,040
+but that is not our scenario here we are
+
+1358
+00:46:54,720 --> 00:46:59,200
+not going to work with any tables or
+
+1359
+00:46:57,040 --> 00:47:01,119
+uh anything so that's again data
+
+1360
+00:46:59,200 --> 00:47:02,640
+definition language the creation of the
+
+1361
+00:47:01,119 --> 00:47:04,160
+whole creation of the database and
+
+1362
+00:47:02,640 --> 00:47:05,839
+tables will happen
+
+1363
+00:47:04,160 --> 00:47:07,839
+but that is not always recommend so
+
+1364
+00:47:05,839 --> 00:47:10,079
+through the code no one will create the
+
+1365
+00:47:07,839 --> 00:47:11,599
+tables so they will directly log into
+
+1366
+00:47:10,079 --> 00:47:13,599
+the database and they will create
+
+1367
+00:47:11,599 --> 00:47:15,839
+whatever the tables they require
+
+1368
+00:47:13,599 --> 00:47:18,000
+okay but just for your understanding i'm
+
+1369
+00:47:15,839 --> 00:47:21,200
+just telling you so all the sql commands
+
+1370
+00:47:18,000 --> 00:47:22,079
+we can execute not only this
+
+1371
+00:47:21,200 --> 00:47:24,000
+now
+
+1372
+00:47:22,079 --> 00:47:26,480
+again we have to use different kinds of
+
+1373
+00:47:24,000 --> 00:47:28,319
+syntaxes okay not directly so create
+
+1374
+00:47:26,480 --> 00:47:29,920
+table is different syntax command is a
+
+1375
+00:47:28,319 --> 00:47:32,079
+different syntax where you have to
+
+1376
+00:47:29,920 --> 00:47:34,160
+specify the table name column names data
+
+1377
+00:47:32,079 --> 00:47:35,200
+type of the columns so many things are
+
+1378
+00:47:34,160 --> 00:47:37,520
+there
+
+1379
+00:47:35,200 --> 00:47:39,280
+now we'll see the select command
+
+1380
+00:47:37,520 --> 00:47:41,760
+so so far we have seen only three
+
+1381
+00:47:39,280 --> 00:47:43,680
+command insert updated these commands
+
+1382
+00:47:41,760 --> 00:47:46,319
+will go and execute against the database
+
+1383
+00:47:43,680 --> 00:47:48,079
+but it will not return anything for us
+
+1384
+00:47:46,319 --> 00:47:50,240
+but select command is not like that
+
+1385
+00:47:48,079 --> 00:47:51,680
+which will return something for us
+
+1386
+00:47:50,240 --> 00:47:53,280
+the data will be written from the
+
+1387
+00:47:51,680 --> 00:47:54,960
+database table
+
+1388
+00:47:53,280 --> 00:47:59,040
+so now i'll show you
+
+1389
+00:47:54,960 --> 00:48:00,960
+how to work with the select command
+
+1390
+00:47:59,040 --> 00:48:03,040
+go back
+
+1391
+00:48:00,960 --> 00:48:04,559
+and what i'll do is i will just copy the
+
+1392
+00:48:03,040 --> 00:48:06,240
+same code
+
+1393
+00:48:04,559 --> 00:48:08,640
+and few changes we have to done so
+
+1394
+00:48:06,240 --> 00:48:12,000
+instead of db operation i say
+
+1395
+00:48:08,640 --> 00:48:12,000
+select a db operation
+
+1396
+00:48:12,880 --> 00:48:16,800
+select db operation
+
+1397
+00:48:15,200 --> 00:48:18,960
+now what are the changes we have to do
+
+1398
+00:48:16,800 --> 00:48:21,040
+here is we don't need all these queries
+
+1399
+00:48:18,960 --> 00:48:23,040
+we need only select a query
+
+1400
+00:48:21,040 --> 00:48:24,960
+so here i'll create one query called a
+
+1401
+00:48:23,040 --> 00:48:26,960
+select query i'm defining one variable
+
+1402
+00:48:24,960 --> 00:48:28,880
+called select underscore query
+
+1403
+00:48:26,960 --> 00:48:31,119
+and because you have only one select you
+
+1404
+00:48:28,880 --> 00:48:32,880
+don't need to create this variable also
+
+1405
+00:48:31,119 --> 00:48:36,000
+you can directly write the select query
+
+1406
+00:48:32,880 --> 00:48:37,760
+here so if i just look at the client
+
+1407
+00:48:36,000 --> 00:48:39,520
+application again so when executing this
+
+1408
+00:48:37,760 --> 00:48:42,160
+command what happens this is giving the
+
+1409
+00:48:39,520 --> 00:48:44,800
+data here right the same command i just
+
+1410
+00:48:42,160 --> 00:48:46,400
+want to execute through automation code
+
+1411
+00:48:44,800 --> 00:48:48,000
+because i want to execute only one
+
+1412
+00:48:46,400 --> 00:48:50,880
+command so instead of creating a
+
+1413
+00:48:48,000 --> 00:48:54,800
+variable i am directly specifying that
+
+1414
+00:48:50,880 --> 00:48:56,800
+sql statement inside the execute method
+
+1415
+00:48:54,800 --> 00:48:58,880
+okay so this is fine so it will go and
+
+1416
+00:48:56,800 --> 00:48:59,599
+execute the select command
+
+1417
+00:48:58,880 --> 00:49:01,440
+and
+
+1418
+00:48:59,599 --> 00:49:03,280
+commit is required or not committee is
+
+1419
+00:49:01,440 --> 00:49:04,800
+not required here
+
+1420
+00:49:03,280 --> 00:49:06,880
+because this is a
+
+1421
+00:49:04,800 --> 00:49:08,960
+not going to insert or update or delete
+
+1422
+00:49:06,880 --> 00:49:11,040
+any data it is just return the data
+
+1423
+00:49:08,960 --> 00:49:12,480
+whatever it is available so commit is
+
+1424
+00:49:11,040 --> 00:49:14,319
+not required here you can just remove
+
+1425
+00:49:12,480 --> 00:49:16,559
+the command
+
+1426
+00:49:14,319 --> 00:49:19,200
+okay and what else we need here so we
+
+1427
+00:49:16,559 --> 00:49:21,440
+need to do something more what is that
+
+1428
+00:49:19,200 --> 00:49:23,359
+before closing the connection
+
+1429
+00:49:21,440 --> 00:49:25,680
+so what this statement will do
+
+1430
+00:49:23,359 --> 00:49:28,000
+so as soon as we executed this statement
+
+1431
+00:49:25,680 --> 00:49:29,599
+which will return the data for us
+
+1432
+00:49:28,000 --> 00:49:31,040
+which will return all the record from a
+
+1433
+00:49:29,599 --> 00:49:33,839
+table right
+
+1434
+00:49:31,040 --> 00:49:36,000
+so we have to store the records in the
+
+1435
+00:49:33,839 --> 00:49:37,200
+variable we have to store them in a
+
+1436
+00:49:36,000 --> 00:49:38,880
+variable
+
+1437
+00:49:37,200 --> 00:49:40,319
+but where we will store where the data
+
+1438
+00:49:38,880 --> 00:49:42,400
+is available
+
+1439
+00:49:40,319 --> 00:49:44,640
+so as soon as we executed this data as
+
+1440
+00:49:42,400 --> 00:49:46,960
+soon as we executed this command
+
+1441
+00:49:44,640 --> 00:49:49,599
+actually the data also from where we are
+
+1442
+00:49:46,960 --> 00:49:52,000
+executing this command through cursor
+
+1443
+00:49:49,599 --> 00:49:53,920
+what is the cursor cursor is a buffer or
+
+1444
+00:49:52,000 --> 00:49:56,240
+temporary area
+
+1445
+00:49:53,920 --> 00:49:59,520
+let me just clarify what exactly it is
+
+1446
+00:49:56,240 --> 00:50:01,599
+so normally what happens is uh
+
+1447
+00:49:59,520 --> 00:50:03,839
+this is my database okay let's say this
+
+1448
+00:50:01,599 --> 00:50:05,680
+is my database
+
+1449
+00:50:03,839 --> 00:50:07,760
+okay and now here we are executing all
+
+1450
+00:50:05,680 --> 00:50:10,079
+the queries we are executing this query
+
+1451
+00:50:07,760 --> 00:50:10,839
+right and actually this query should go
+
+1452
+00:50:10,079 --> 00:50:14,240
+through
+
+1453
+00:50:10,839 --> 00:50:16,000
+the cursor this is the cursor
+
+1454
+00:50:14,240 --> 00:50:17,760
+and again this cursor is also part of
+
+1455
+00:50:16,000 --> 00:50:20,400
+the connection okay so this is a
+
+1456
+00:50:17,760 --> 00:50:22,000
+temporary area so when i execute insert
+
+1457
+00:50:20,400 --> 00:50:23,520
+command the insertion also will go
+
+1458
+00:50:22,000 --> 00:50:25,760
+through the cursor and perform the
+
+1459
+00:50:23,520 --> 00:50:27,680
+operation here so one direction when you
+
+1460
+00:50:25,760 --> 00:50:29,440
+execute update and delete command also
+
+1461
+00:50:27,680 --> 00:50:31,839
+it will go through the cursor and
+
+1462
+00:50:29,440 --> 00:50:33,200
+execute here but when execute the select
+
+1463
+00:50:31,839 --> 00:50:34,960
+command
+
+1464
+00:50:33,200 --> 00:50:37,760
+that command also will go through the
+
+1465
+00:50:34,960 --> 00:50:39,599
+cursor and whatever the data is returned
+
+1466
+00:50:37,760 --> 00:50:40,800
+the data also will be available in the
+
+1467
+00:50:39,599 --> 00:50:42,800
+same cursor
+
+1468
+00:50:40,800 --> 00:50:44,079
+the returned data also available in the
+
+1469
+00:50:42,800 --> 00:50:46,400
+same cursor
+
+1470
+00:50:44,079 --> 00:50:48,720
+so now as soon as you executed this
+
+1471
+00:50:46,400 --> 00:50:50,800
+command the returned data also available
+
+1472
+00:50:48,720 --> 00:50:54,160
+in the same cursor
+
+1473
+00:50:50,800 --> 00:50:55,839
+now if you want to access this data from
+
+1474
+00:50:54,160 --> 00:50:57,599
+where we can access
+
+1475
+00:50:55,839 --> 00:50:58,720
+through this cursor we will be able to
+
+1476
+00:50:57,599 --> 00:51:01,520
+access
+
+1477
+00:50:58,720 --> 00:51:03,599
+but how much data we have in the cursor
+
+1478
+00:51:01,520 --> 00:51:05,359
+we don't know that you can have 10
+
+1479
+00:51:03,599 --> 00:51:07,440
+records you can have 50 records you can
+
+1480
+00:51:05,359 --> 00:51:09,119
+have 100 cars we don't know that but i
+
+1481
+00:51:07,440 --> 00:51:10,400
+want to read all the data from the
+
+1482
+00:51:09,119 --> 00:51:12,400
+cursor
+
+1483
+00:51:10,400 --> 00:51:14,000
+so how we can get that we have to write
+
+1484
+00:51:12,400 --> 00:51:16,319
+a looping statement
+
+1485
+00:51:14,000 --> 00:51:18,000
+okay so how to write a looping statement
+
+1486
+00:51:16,319 --> 00:51:19,280
+we have to just get the data from the
+
+1487
+00:51:18,000 --> 00:51:20,079
+cursors
+
+1488
+00:51:19,280 --> 00:51:21,520
+now
+
+1489
+00:51:20,079 --> 00:51:23,520
+so here
+
+1490
+00:51:21,520 --> 00:51:26,319
+i say for
+
+1491
+00:51:23,520 --> 00:51:27,280
+i define one variable called columns
+
+1492
+00:51:26,319 --> 00:51:28,880
+in
+
+1493
+00:51:27,280 --> 00:51:31,839
+cursor
+
+1494
+00:51:28,880 --> 00:51:34,559
+so what exactly happened from the cursor
+
+1495
+00:51:31,839 --> 00:51:37,920
+first it will fetch one record one row
+
+1496
+00:51:34,559 --> 00:51:39,040
+into this column okay one row
+
+1497
+00:51:37,920 --> 00:51:40,960
+okay so
+
+1498
+00:51:39,040 --> 00:51:43,440
+or what we can do is instead of columns
+
+1499
+00:51:40,960 --> 00:51:46,000
+i say row here that is a better option
+
+1500
+00:51:43,440 --> 00:51:47,839
+row so from the cursor which will get
+
+1501
+00:51:46,000 --> 00:51:50,400
+the first row so what is the first row
+
+1502
+00:51:47,839 --> 00:51:52,800
+contains a side scientist name 101 and
+
+1503
+00:51:50,400 --> 00:51:54,640
+david now those two values are available
+
+1504
+00:51:52,800 --> 00:51:56,480
+inside this row
+
+1505
+00:51:54,640 --> 00:51:59,040
+now we need to extract those values
+
+1506
+00:51:56,480 --> 00:52:00,800
+independently how to extract them simply
+
+1507
+00:51:59,040 --> 00:52:02,839
+we can say
+
+1508
+00:52:00,800 --> 00:52:04,400
+row of
+
+1509
+00:52:02,839 --> 00:52:08,079
+zero
+
+1510
+00:52:04,400 --> 00:52:10,640
+and comma row of 1
+
+1511
+00:52:08,079 --> 00:52:12,400
+okay and in the row 0 is a column number
+
+1512
+00:52:10,640 --> 00:52:15,200
+one is another column number in the same
+
+1513
+00:52:12,400 --> 00:52:16,839
+row so we want to print them
+
+1514
+00:52:15,200 --> 00:52:19,920
+put them in the print statement like
+
+1515
+00:52:16,839 --> 00:52:21,599
+this so like this if you have n number
+
+1516
+00:52:19,920 --> 00:52:23,200
+of columns so i will also change the
+
+1517
+00:52:21,599 --> 00:52:25,200
+table name guys because this table
+
+1518
+00:52:23,200 --> 00:52:28,480
+contains only two records
+
+1519
+00:52:25,200 --> 00:52:30,319
+so let me also change the table so here
+
+1520
+00:52:28,480 --> 00:52:32,480
+go to the client
+
+1521
+00:52:30,319 --> 00:52:34,720
+i have another table called orders so
+
+1522
+00:52:32,480 --> 00:52:38,319
+let me just
+
+1523
+00:52:34,720 --> 00:52:38,319
+select the star from orders
+
+1524
+00:52:40,000 --> 00:52:44,559
+okay so now we have uh two records but
+
+1525
+00:52:42,319 --> 00:52:46,240
+fine we have a three columns id order
+
+1526
+00:52:44,559 --> 00:52:47,200
+number order day so i want to read all
+
+1527
+00:52:46,240 --> 00:52:49,520
+the data
+
+1528
+00:52:47,200 --> 00:52:50,960
+so let me just change the table name
+
+1529
+00:52:49,520 --> 00:52:53,520
+called orders
+
+1530
+00:52:50,960 --> 00:52:56,160
+okay now what happens from the cursor
+
+1531
+00:52:53,520 --> 00:52:58,319
+it will get the one row and store into
+
+1532
+00:52:56,160 --> 00:53:00,880
+that variable now the row contains the
+
+1533
+00:52:58,319 --> 00:53:02,960
+three columns what are they id order
+
+1534
+00:53:00,880 --> 00:53:04,319
+number order date so first row three
+
+1535
+00:53:02,960 --> 00:53:06,240
+columns
+
+1536
+00:53:04,319 --> 00:53:08,319
+now we need to extract one by one so row
+
+1537
+00:53:06,240 --> 00:53:09,119
+of zero means what in that particular
+
+1538
+00:53:08,319 --> 00:53:12,079
+row
+
+1539
+00:53:09,119 --> 00:53:14,880
+zero column is id so row of one means
+
+1540
+00:53:12,079 --> 00:53:16,240
+what in the same row first column which
+
+1541
+00:53:14,880 --> 00:53:17,920
+is order number
+
+1542
+00:53:16,240 --> 00:53:19,200
+now row
+
+1543
+00:53:17,920 --> 00:53:20,079
+of
+
+1544
+00:53:19,200 --> 00:53:22,880
+2
+
+1545
+00:53:20,079 --> 00:53:24,319
+means what in the same row second column
+
+1546
+00:53:22,880 --> 00:53:26,319
+so here
+
+1547
+00:53:24,319 --> 00:53:28,640
+column values will start from 0 counting
+
+1548
+00:53:26,319 --> 00:53:30,960
+from 0 so zero one two so we have a
+
+1549
+00:53:28,640 --> 00:53:33,599
+three columns we say row of zero row of
+
+1550
+00:53:30,960 --> 00:53:36,000
+one row same row zero column first
+
+1551
+00:53:33,599 --> 00:53:37,760
+column second column once it is printed
+
+1552
+00:53:36,000 --> 00:53:39,040
+then it will go up and get another row
+
+1553
+00:53:37,760 --> 00:53:40,640
+into this
+
+1554
+00:53:39,040 --> 00:53:42,160
+now again we will print that value so
+
+1555
+00:53:40,640 --> 00:53:43,599
+like this depends upon the number of
+
+1556
+00:53:42,160 --> 00:53:45,040
+records in a table
+
+1557
+00:53:43,599 --> 00:53:47,200
+this particular loop statement will
+
+1558
+00:53:45,040 --> 00:53:49,280
+repeat multiple times
+
+1559
+00:53:47,200 --> 00:53:52,559
+so after printing all the data then
+
+1560
+00:53:49,280 --> 00:53:54,319
+finally i'll close the connection
+
+1561
+00:53:52,559 --> 00:53:58,400
+okay so this is the only thing we can do
+
+1562
+00:53:54,319 --> 00:53:58,400
+that so this will close connection
+
+1563
+00:53:58,640 --> 00:54:02,480
+all right now execute and see
+
+1564
+00:54:05,520 --> 00:54:08,640
+yes
+
+1565
+00:54:06,319 --> 00:54:10,720
+connection is unsuccessful why because
+
+1566
+00:54:08,640 --> 00:54:12,880
+we have given port number wrong here so
+
+1567
+00:54:10,720 --> 00:54:14,880
+let me correct it
+
+1568
+00:54:12,880 --> 00:54:17,440
+let's execute one more time
+
+1569
+00:54:14,880 --> 00:54:19,280
+yeah now we can see we got the data so
+
+1570
+00:54:17,440 --> 00:54:22,480
+this is a
+
+1571
+00:54:19,280 --> 00:54:24,319
+uh id and this is the order number and
+
+1572
+00:54:22,480 --> 00:54:26,400
+this is the actually we are we cannot
+
+1573
+00:54:24,319 --> 00:54:28,960
+get the column values header values but
+
+1574
+00:54:26,400 --> 00:54:30,480
+we can get only data so this is the data
+
+1575
+00:54:28,960 --> 00:54:33,599
+so even if you have 100 requests you
+
+1576
+00:54:30,480 --> 00:54:35,839
+will get all 100 records from the table
+
+1577
+00:54:33,599 --> 00:54:37,280
+okay so simply we have to write some
+
+1578
+00:54:35,839 --> 00:54:39,359
+additional
+
+1579
+00:54:37,280 --> 00:54:41,520
+to print the data from the table which
+
+1580
+00:54:39,359 --> 00:54:43,359
+is returned so as i said
+
+1581
+00:54:41,520 --> 00:54:45,200
+as soon as we executed this query so
+
+1582
+00:54:43,359 --> 00:54:47,440
+select query we have executed so it will
+
+1583
+00:54:45,200 --> 00:54:49,839
+also return the data the data also will
+
+1584
+00:54:47,440 --> 00:54:51,839
+be stored in the same cursor so from
+
+1585
+00:54:49,839 --> 00:54:54,160
+this cursor we want to read each
+
+1586
+00:54:51,839 --> 00:54:56,319
+individual row and from that particular
+
+1587
+00:54:54,160 --> 00:54:57,920
+row we have to get individual columns
+
+1588
+00:54:56,319 --> 00:54:59,920
+like this
+
+1589
+00:54:57,920 --> 00:55:03,280
+and this is how we need to
+
+1590
+00:54:59,920 --> 00:55:07,280
+work with the select command
+
+1591
+00:55:03,280 --> 00:55:10,079
+okay so in session updation deletion and
+
+1592
+00:55:07,280 --> 00:55:11,839
+selection these are the four called dml
+
+1593
+00:55:10,079 --> 00:55:14,319
+selection is comes on a drl data
+
+1594
+00:55:11,839 --> 00:55:16,559
+retrieval language and dml so these are
+
+1595
+00:55:14,319 --> 00:55:19,200
+the four important uh commands you have
+
+1596
+00:55:16,559 --> 00:55:20,720
+to learn from sql and which are again
+
+1597
+00:55:19,200 --> 00:55:21,680
+including join sub queries and
+
+1598
+00:55:20,720 --> 00:55:24,319
+everything
+
+1599
+00:55:21,680 --> 00:55:25,920
+select is a very uh big actual there are
+
+1600
+00:55:24,319 --> 00:55:27,440
+so many options we can use along with
+
+1601
+00:55:25,920 --> 00:55:29,359
+the select command
+
+1602
+00:55:27,440 --> 00:55:31,599
+even joins the subcode is also part of
+
+1603
+00:55:29,359 --> 00:55:33,119
+the select command
+
+1604
+00:55:31,599 --> 00:55:35,440
+okay so these are all
+
+1605
+00:55:33,119 --> 00:55:37,520
+database operations how to connect to
+
+1606
+00:55:35,440 --> 00:55:38,640
+the database how we can execute the
+
+1607
+00:55:37,520 --> 00:55:39,920
+queries
+
+1608
+00:55:38,640 --> 00:55:41,839
+from the
+
+1609
+00:55:39,920 --> 00:55:43,200
+python program
+
+1610
+00:55:41,839 --> 00:55:45,200
+and we will able to interact with the
+
+1611
+00:55:43,200 --> 00:55:47,520
+database now our python program is
+
+1612
+00:55:45,200 --> 00:55:50,319
+acting as a client through the coding we
+
+1613
+00:55:47,520 --> 00:55:53,200
+are able to do everything
+
+1614
+00:55:50,319 --> 00:55:55,359
+so without having client application
+
+1615
+00:55:53,200 --> 00:55:57,680
+now with this understanding we should
+
+1616
+00:55:55,359 --> 00:55:59,599
+able to do the data driven testing
+
+1617
+00:55:57,680 --> 00:56:02,160
+so now we know how to get the data from
+
+1618
+00:55:59,599 --> 00:56:03,599
+the table right so once you get the data
+
+1619
+00:56:02,160 --> 00:56:04,880
+we will just pass the data to the
+
+1620
+00:56:03,599 --> 00:56:07,200
+application
+
+1621
+00:56:04,880 --> 00:56:08,880
+there is a data driven testing
+
+1622
+00:56:07,200 --> 00:56:10,480
+so now we will see the data driven
+
+1623
+00:56:08,880 --> 00:56:11,440
+testing how to perform data driven
+
+1624
+00:56:10,480 --> 00:56:14,640
+testing
+
+1625
+00:56:11,440 --> 00:56:15,760
+using database table as a source
+
+1626
+00:56:14,640 --> 00:56:18,400
+okay
+
+1627
+00:56:15,760 --> 00:56:19,920
+now in the previous day we have seen fd
+
+1628
+00:56:18,400 --> 00:56:22,000
+calculator right
+
+1629
+00:56:19,920 --> 00:56:24,079
+now the same application
+
+1630
+00:56:22,000 --> 00:56:26,160
+we are going to test
+
+1631
+00:56:24,079 --> 00:56:28,559
+with the database table data so instead
+
+1632
+00:56:26,160 --> 00:56:31,440
+of getting the data from excel this time
+
+1633
+00:56:28,559 --> 00:56:34,000
+we are getting the data from the table
+
+1634
+00:56:31,440 --> 00:56:35,920
+database table same example again we
+
+1635
+00:56:34,000 --> 00:56:38,720
+will repeat but this time we are going
+
+1636
+00:56:35,920 --> 00:56:40,319
+to use database as a source database
+
+1637
+00:56:38,720 --> 00:56:41,599
+table as a source which contains the
+
+1638
+00:56:40,319 --> 00:56:43,520
+data
+
+1639
+00:56:41,599 --> 00:56:46,400
+now if i just go back to the database
+
+1640
+00:56:43,520 --> 00:56:47,839
+table so we have
+
+1641
+00:56:46,400 --> 00:56:51,200
+one table here
+
+1642
+00:56:47,839 --> 00:56:53,359
+select a star from cal data
+
+1643
+00:56:51,200 --> 00:56:56,240
+so which is already i created this table
+
+1644
+00:56:53,359 --> 00:56:58,480
+myself so the same kind of data whatever
+
+1645
+00:56:56,240 --> 00:57:01,520
+excel sheet yesterday we prepared the
+
+1646
+00:56:58,480 --> 00:57:03,520
+same data which is populated in this
+
+1647
+00:57:01,520 --> 00:57:06,400
+principle rate of interest period one
+
+1648
+00:57:03,520 --> 00:57:07,440
+period to frequency and maturity
+
+1649
+00:57:06,400 --> 00:57:09,599
+but here
+
+1650
+00:57:07,440 --> 00:57:12,079
+we are using this table only for reading
+
+1651
+00:57:09,599 --> 00:57:14,000
+purpose not for writing purpose we are
+
+1652
+00:57:12,079 --> 00:57:15,599
+not going to write any results in the
+
+1653
+00:57:14,000 --> 00:57:17,520
+table
+
+1654
+00:57:15,599 --> 00:57:20,000
+okay why because
+
+1655
+00:57:17,520 --> 00:57:22,000
+in the projects normally what happens is
+
+1656
+00:57:20,000 --> 00:57:24,000
+your database your tables will be
+
+1657
+00:57:22,000 --> 00:57:25,599
+accessed by many people
+
+1658
+00:57:24,000 --> 00:57:28,079
+in your teams okay
+
+1659
+00:57:25,599 --> 00:57:30,240
+so you have to use the data only for
+
+1660
+00:57:28,079 --> 00:57:32,319
+reading purpose not for
+
+1661
+00:57:30,240 --> 00:57:34,319
+modification or not for updation so if
+
+1662
+00:57:32,319 --> 00:57:36,720
+you just let us say if you modify some
+
+1663
+00:57:34,319 --> 00:57:39,200
+column or if you update some data here
+
+1664
+00:57:36,720 --> 00:57:41,599
+that may be impacted for another user
+
+1665
+00:57:39,200 --> 00:57:44,000
+may be that user using this proper data
+
+1666
+00:57:41,599 --> 00:57:45,839
+this data in their project
+
+1667
+00:57:44,000 --> 00:57:47,359
+so there are many scenarios are there so
+
+1668
+00:57:45,839 --> 00:57:48,559
+most of the times
+
+1669
+00:57:47,359 --> 00:57:50,720
+we don't
+
+1670
+00:57:48,559 --> 00:57:52,480
+corrupt the existing data or existing
+
+1671
+00:57:50,720 --> 00:57:55,599
+tables in the database because there are
+
+1672
+00:57:52,480 --> 00:57:57,200
+so many people or do work based on or
+
+1673
+00:57:55,599 --> 00:57:58,720
+depends on the particular tables and
+
+1674
+00:57:57,200 --> 00:58:00,880
+tables data
+
+1675
+00:57:58,720 --> 00:58:03,520
+so don't try to correct the data so
+
+1676
+00:58:00,880 --> 00:58:05,920
+always try to use existing data for
+
+1677
+00:58:03,520 --> 00:58:07,280
+automation testing but where we will
+
+1678
+00:58:05,920 --> 00:58:09,200
+write the results suppose if these
+
+1679
+00:58:07,280 --> 00:58:10,720
+combinations got passed
+
+1680
+00:58:09,200 --> 00:58:13,200
+so at the initial level we will write
+
+1681
+00:58:10,720 --> 00:58:13,920
+the results into console window directly
+
+1682
+00:58:13,200 --> 00:58:15,760
+but
+
+1683
+00:58:13,920 --> 00:58:17,680
+finally we will see i'll show you how to
+
+1684
+00:58:15,760 --> 00:58:19,760
+update the results in the report okay
+
+1685
+00:58:17,680 --> 00:58:21,520
+results will be updated in the report so
+
+1686
+00:58:19,760 --> 00:58:23,200
+we don't again connect to the database
+
+1687
+00:58:21,520 --> 00:58:25,599
+and we don't see results is updated in
+
+1688
+00:58:23,200 --> 00:58:28,400
+the last column or not so we don't do
+
+1689
+00:58:25,599 --> 00:58:30,559
+all these things in the case of database
+
+1690
+00:58:28,400 --> 00:58:32,160
+but excel we have complete control
+
+1691
+00:58:30,559 --> 00:58:34,240
+because excel files we will store only
+
+1692
+00:58:32,160 --> 00:58:36,079
+in the local machine so we have we are
+
+1693
+00:58:34,240 --> 00:58:38,079
+the owners of our excel sheet so we will
+
+1694
+00:58:36,079 --> 00:58:40,160
+able to open the excel files any number
+
+1695
+00:58:38,079 --> 00:58:41,599
+of times so we have full fridge control
+
+1696
+00:58:40,160 --> 00:58:43,280
+on that so we can still write the
+
+1697
+00:58:41,599 --> 00:58:44,799
+results back into the excel it will not
+
+1698
+00:58:43,280 --> 00:58:46,559
+impact anywhere else
+
+1699
+00:58:44,799 --> 00:58:49,280
+but database is not like this so
+
+1700
+00:58:46,559 --> 00:58:51,920
+database is very sensitive component if
+
+1701
+00:58:49,280 --> 00:58:53,839
+you do any small change that may impact
+
+1702
+00:58:51,920 --> 00:58:55,200
+other users or it will impact some other
+
+1703
+00:58:53,839 --> 00:58:57,599
+applications
+
+1704
+00:58:55,200 --> 00:58:59,920
+okay so
+
+1705
+00:58:57,599 --> 00:59:02,559
+just try to use the existing data for
+
+1706
+00:58:59,920 --> 00:59:04,640
+our data-driven testing that's it so now
+
+1707
+00:59:02,559 --> 00:59:06,240
+this is a table i have principal amount
+
+1708
+00:59:04,640 --> 00:59:07,760
+rate of interest period one two
+
+1709
+00:59:06,240 --> 00:59:10,079
+frequency and maturity value so we need
+
+1710
+00:59:07,760 --> 00:59:12,720
+to read this data and then we have to
+
+1711
+00:59:10,079 --> 00:59:16,160
+use it for data driven testing
+
+1712
+00:59:12,720 --> 00:59:18,000
+so now let us go back and
+
+1713
+00:59:16,160 --> 00:59:19,440
+copy the previous example and
+
+1714
+00:59:18,000 --> 00:59:22,160
+accordingly we have to
+
+1715
+00:59:19,440 --> 00:59:24,079
+uh do some changes okay
+
+1716
+00:59:22,160 --> 00:59:25,760
+and here we don't need any utility file
+
+1717
+00:59:24,079 --> 00:59:27,359
+nothing we can directly interact with
+
+1718
+00:59:25,760 --> 00:59:30,319
+the database
+
+1719
+00:59:27,359 --> 00:59:32,880
+now i copying the i copied the same file
+
+1720
+00:59:30,319 --> 00:59:35,200
+and this time i'm using instead of excel
+
+1721
+00:59:32,880 --> 00:59:39,440
+sorry so instead of excel i'm just
+
+1722
+00:59:35,200 --> 00:59:41,440
+trying to use database i'll say db
+
+1723
+00:59:39,440 --> 00:59:43,680
+okay say okay
+
+1724
+00:59:41,440 --> 00:59:44,880
+all right so now let us try to modify
+
+1725
+00:59:43,680 --> 00:59:46,480
+this code
+
+1726
+00:59:44,880 --> 00:59:48,480
+so what are all things we needed so we
+
+1727
+00:59:46,480 --> 00:59:50,880
+will have that code and rest of them we
+
+1728
+00:59:48,480 --> 00:59:52,240
+will remove it okay we don't need that
+
+1729
+00:59:50,880 --> 00:59:54,000
+so currently i want to work with the
+
+1730
+00:59:52,240 --> 00:59:55,280
+database so to work with the database
+
+1731
+00:59:54,000 --> 00:59:57,280
+what are all things we need to have in
+
+1732
+00:59:55,280 --> 00:59:59,599
+this code we don't need excel utilities
+
+1733
+00:59:57,280 --> 01:00:00,400
+we can just remove that import
+
+1734
+00:59:59,599 --> 01:00:01,839
+and
+
+1735
+01:00:00,400 --> 01:00:03,599
+we need to
+
+1736
+01:00:01,839 --> 01:00:05,680
+specify all the configuration we have to
+
+1737
+01:00:03,599 --> 01:00:08,640
+launch our application and we don't need
+
+1738
+01:00:05,680 --> 01:00:10,640
+excel we can also just remove this part
+
+1739
+01:00:08,640 --> 01:00:12,480
+and even we don't need for loop here so
+
+1740
+01:00:10,640 --> 01:00:14,319
+we will write our own for loop
+
+1741
+01:00:12,480 --> 01:00:15,839
+and for now let's have the code like
+
+1742
+01:00:14,319 --> 01:00:17,280
+this and all these things are required
+
+1743
+01:00:15,839 --> 01:00:19,440
+or not
+
+1744
+01:00:17,280 --> 01:00:21,520
+so this is all also not required at all
+
+1745
+01:00:19,440 --> 01:00:23,119
+if you still want it you can still
+
+1746
+01:00:21,520 --> 01:00:24,400
+replace this command so later i will
+
+1747
+01:00:23,119 --> 01:00:26,960
+replace them
+
+1748
+01:00:24,400 --> 01:00:28,559
+and variables i will replace later
+
+1749
+01:00:26,960 --> 01:00:30,400
+and this is required so whatever the
+
+1750
+01:00:28,559 --> 01:00:32,799
+value so we will get from the database
+
+1751
+01:00:30,400 --> 01:00:34,480
+here in this variables we will pass the
+
+1752
+01:00:32,799 --> 01:00:37,040
+variables as usual
+
+1753
+01:00:34,480 --> 01:00:38,880
+and also will the con we will do the
+
+1754
+01:00:37,040 --> 01:00:41,599
+validation but here we do not have excel
+
+1755
+01:00:38,880 --> 01:00:44,160
+we can just remove these two statements
+
+1756
+01:00:41,599 --> 01:00:46,480
+and also we can remove these two because
+
+1757
+01:00:44,160 --> 01:00:49,280
+whatever the statements which are there
+
+1758
+01:00:46,480 --> 01:00:51,839
+related to excel we can just remove them
+
+1759
+01:00:49,280 --> 01:00:51,839
+and then
+
+1760
+01:00:52,000 --> 01:00:56,960
+okay driver working close and time
+
+1761
+01:00:55,359 --> 01:00:59,760
+okay done
+
+1762
+01:00:56,960 --> 01:01:02,400
+so i think time module is also deleted
+
+1763
+01:00:59,760 --> 01:01:04,400
+time is there
+
+1764
+01:01:02,400 --> 01:01:06,799
+okay so that we'll see later so i have
+
+1765
+01:01:04,400 --> 01:01:08,319
+just removed unnecessary code so now
+
+1766
+01:01:06,799 --> 01:01:10,079
+we'll see how we can
+
+1767
+01:01:08,319 --> 01:01:11,119
+get the data from the database so the
+
+1768
+01:01:10,079 --> 01:01:13,280
+first thing
+
+1769
+01:01:11,119 --> 01:01:14,960
+so again go back to our previous code
+
+1770
+01:01:13,280 --> 01:01:16,720
+database operation or select db
+
+1771
+01:01:14,960 --> 01:01:18,319
+operations so what is the first thing we
+
+1772
+01:01:16,720 --> 01:01:20,160
+have to do to get the data from the
+
+1773
+01:01:18,319 --> 01:01:22,559
+table and everything
+
+1774
+01:01:20,160 --> 01:01:24,079
+we have to execute these statements
+
+1775
+01:01:22,559 --> 01:01:26,559
+first we need to import this connector
+
+1776
+01:01:24,079 --> 01:01:28,079
+right so go back and import that
+
+1777
+01:01:26,559 --> 01:01:30,400
+connector
+
+1778
+01:01:28,079 --> 01:01:33,280
+and uh this code is same
+
+1779
+01:01:30,400 --> 01:01:36,400
+so from here to here i'm copying
+
+1780
+01:01:33,280 --> 01:01:40,079
+go back and specify here
+
+1781
+01:01:36,400 --> 01:01:43,599
+okay now observe this so here uh
+
+1782
+01:01:40,079 --> 01:01:45,680
+just a moment and reformatting the code
+
+1783
+01:01:43,599 --> 01:01:46,720
+reformat means it will properly align
+
+1784
+01:01:45,680 --> 01:01:49,599
+the code
+
+1785
+01:01:46,720 --> 01:01:50,960
+reformat the code okay so now if i just
+
+1786
+01:01:49,599 --> 01:01:52,799
+look at this
+
+1787
+01:01:50,960 --> 01:01:54,480
+so till here we already know so we have
+
+1788
+01:01:52,799 --> 01:01:55,520
+launch our application and maximize the
+
+1789
+01:01:54,480 --> 01:01:57,280
+page
+
+1790
+01:01:55,520 --> 01:01:59,440
+and then first of all we need to get the
+
+1791
+01:01:57,280 --> 01:02:01,440
+data from the database and after that we
+
+1792
+01:01:59,440 --> 01:02:04,559
+have to pass the data to the application
+
+1793
+01:02:01,440 --> 01:02:06,000
+right so now what we need to do is
+
+1794
+01:02:04,559 --> 01:02:07,520
+we have established the connection to
+
+1795
+01:02:06,000 --> 01:02:09,920
+the database
+
+1796
+01:02:07,520 --> 01:02:11,839
+and uh what is the table here okay i'll
+
+1797
+01:02:09,920 --> 01:02:14,400
+mention that so table name is
+
+1798
+01:02:11,839 --> 01:02:16,559
+cal data so this is my table name
+
+1799
+01:02:14,400 --> 01:02:18,480
+so i will change it here
+
+1800
+01:02:16,559 --> 01:02:20,400
+so this will execute so where the data
+
+1801
+01:02:18,480 --> 01:02:22,799
+is available now so data is available in
+
+1802
+01:02:20,400 --> 01:02:25,039
+the cursor so from the cursor i will
+
+1803
+01:02:22,799 --> 01:02:26,880
+read each and every row so i'm just
+
+1804
+01:02:25,039 --> 01:02:29,760
+printing it but i don't want to print
+
+1805
+01:02:26,880 --> 01:02:31,520
+here i want to store the data in the
+
+1806
+01:02:29,760 --> 01:02:33,839
+variables so
+
+1807
+01:02:31,520 --> 01:02:36,480
+what i whatever code i have written here
+
+1808
+01:02:33,839 --> 01:02:39,839
+i will move this entire code
+
+1809
+01:02:36,480 --> 01:02:41,760
+into the for loop itself into the for
+
+1810
+01:02:39,839 --> 01:02:43,520
+loop itself
+
+1811
+01:02:41,760 --> 01:02:44,240
+now observe this
+
+1812
+01:02:43,520 --> 01:02:45,839
+so
+
+1813
+01:02:44,240 --> 01:02:47,599
+from the cursor
+
+1814
+01:02:45,839 --> 01:02:49,440
+we get the first row of data what is the
+
+1815
+01:02:47,599 --> 01:02:51,920
+first row of data this is the one
+
+1816
+01:02:49,440 --> 01:02:53,440
+principal amount 2010 to this is the
+
+1817
+01:02:51,920 --> 01:02:56,640
+first record
+
+1818
+01:02:53,440 --> 01:02:58,240
+right so now in the principal amount
+
+1819
+01:02:56,640 --> 01:02:59,920
+what we need to store we have to just
+
+1820
+01:02:58,240 --> 01:03:01,599
+remove them
+
+1821
+01:02:59,920 --> 01:03:03,280
+we don't need all these things because
+
+1822
+01:03:01,599 --> 01:03:04,640
+we don't have an excel and just removing
+
+1823
+01:03:03,280 --> 01:03:06,400
+everything just we need to get the data
+
+1824
+01:03:04,640 --> 01:03:07,440
+from database and store them in these
+
+1825
+01:03:06,400 --> 01:03:09,599
+variables
+
+1826
+01:03:07,440 --> 01:03:14,160
+now we need to get the principle what is
+
+1827
+01:03:09,599 --> 01:03:15,359
+the column number zero so i say row of
+
+1828
+01:03:14,160 --> 01:03:18,079
+zero
+
+1829
+01:03:15,359 --> 01:03:21,520
+row of 0 i'm assigning that value
+
+1830
+01:03:18,079 --> 01:03:23,680
+so from similarly i say row of 1
+
+1831
+01:03:21,520 --> 01:03:24,559
+and this is a row of
+
+1832
+01:03:23,680 --> 01:03:27,760
+2
+
+1833
+01:03:24,559 --> 01:03:31,039
+and this is a row of 3
+
+1834
+01:03:27,760 --> 01:03:35,359
+and this is row of 4 and what about
+
+1835
+01:03:31,039 --> 01:03:36,640
+maturity value 0 1 2 3 4 5 maturity
+
+1836
+01:03:35,359 --> 01:03:39,839
+value is a 5
+
+1837
+01:03:36,640 --> 01:03:41,599
+so here i'll say row of 5
+
+1838
+01:03:39,839 --> 01:03:43,599
+so now we capture
+
+1839
+01:03:41,599 --> 01:03:46,480
+data from all the columns in the first
+
+1840
+01:03:43,599 --> 01:03:49,039
+row and we have stored in the multiple
+
+1841
+01:03:46,480 --> 01:03:51,200
+variables now the same variable values
+
+1842
+01:03:49,039 --> 01:03:52,880
+we are passing to the application for
+
+1843
+01:03:51,200 --> 01:03:56,079
+every element we are identified each and
+
+1844
+01:03:52,880 --> 01:03:57,760
+every element and as usual we pass them
+
+1845
+01:03:56,079 --> 01:04:00,319
+to the application capture the expected
+
+1846
+01:03:57,760 --> 01:04:01,440
+maturity value again same validation
+
+1847
+01:04:00,319 --> 01:04:03,760
+will start
+
+1848
+01:04:01,440 --> 01:04:06,160
+again expected maturity value actual
+
+1849
+01:04:03,760 --> 01:04:08,079
+maturity value converted into the float
+
+1850
+01:04:06,160 --> 01:04:10,480
+right converted into the float
+
+1851
+01:04:08,079 --> 01:04:10,480
+and then
+
+1852
+01:04:10,640 --> 01:04:15,280
+a validation is started and finally we
+
+1853
+01:04:13,280 --> 01:04:17,839
+click on the clear button and it will
+
+1854
+01:04:15,280 --> 01:04:19,440
+clear and finally we close the
+
+1855
+01:04:17,839 --> 01:04:21,920
+application
+
+1856
+01:04:19,440 --> 01:04:23,280
+so all this code should be part of your
+
+1857
+01:04:21,920 --> 01:04:25,200
+for loop
+
+1858
+01:04:23,280 --> 01:04:26,960
+and once the one round of execution is
+
+1859
+01:04:25,200 --> 01:04:29,760
+completed then what happens from the
+
+1860
+01:04:26,960 --> 01:04:31,280
+cursor it will get another row and again
+
+1861
+01:04:29,760 --> 01:04:33,119
+from that row it will extract all the
+
+1862
+01:04:31,280 --> 01:04:34,720
+data and again pass it to the
+
+1863
+01:04:33,119 --> 01:04:36,960
+application
+
+1864
+01:04:34,720 --> 01:04:38,640
+same thing will repeat multiple times
+
+1865
+01:04:36,960 --> 01:04:42,000
+depends on the data which is having in
+
+1866
+01:04:38,640 --> 01:04:44,480
+the table but now again suppose by
+
+1867
+01:04:42,000 --> 01:04:46,960
+mistake or by somehow some reason if the
+
+1868
+01:04:44,480 --> 01:04:48,240
+connection is not successful
+
+1869
+01:04:46,960 --> 01:04:51,039
+then what happens it will throw the
+
+1870
+01:04:48,240 --> 01:04:53,119
+exception so what i will do now i'll put
+
+1871
+01:04:51,039 --> 01:04:56,880
+a trike block
+
+1872
+01:04:53,119 --> 01:04:59,200
+okay and i will push the entire code
+
+1873
+01:04:56,880 --> 01:05:01,359
+into try block the whole thing i'll push
+
+1874
+01:04:59,200 --> 01:05:03,200
+into the one just give one tab select
+
+1875
+01:05:01,359 --> 01:05:05,200
+everything and click one tab
+
+1876
+01:05:03,200 --> 01:05:07,359
+that's it so that will go to
+
+1877
+01:05:05,200 --> 01:05:10,000
+even including this for loop will be
+
+1878
+01:05:07,359 --> 01:05:12,480
+part of the try block
+
+1879
+01:05:10,000 --> 01:05:14,960
+like this okay now except block should
+
+1880
+01:05:12,480 --> 01:05:16,079
+be there right so here i say accept
+
+1881
+01:05:14,960 --> 01:05:18,000
+block
+
+1882
+01:05:16,079 --> 01:05:19,599
+and connection is not successful then i
+
+1883
+01:05:18,000 --> 01:05:22,799
+will print the message
+
+1884
+01:05:19,599 --> 01:05:24,030
+so here i'll say connection
+
+1885
+01:05:22,799 --> 01:05:26,480
+unsuccessful
+
+1886
+01:05:24,030 --> 01:05:28,000
+[Music]
+
+1887
+01:05:26,480 --> 01:05:30,480
+like this
+
+1888
+01:05:28,000 --> 01:05:32,960
+all right finally i'm closing my browser
+
+1889
+01:05:30,480 --> 01:05:34,559
+so where i'm closing the connection
+
+1890
+01:05:32,960 --> 01:05:35,760
+the connection also we should close
+
+1891
+01:05:34,559 --> 01:05:38,079
+right so where we have to close the
+
+1892
+01:05:35,760 --> 01:05:40,640
+connection we should not close the
+
+1893
+01:05:38,079 --> 01:05:43,039
+connection at the time of repeating the
+
+1894
+01:05:40,640 --> 01:05:44,720
+loop okay so once you completed
+
+1895
+01:05:43,039 --> 01:05:46,720
+everything if i execute the closed
+
+1896
+01:05:44,720 --> 01:05:48,559
+connection here the connection itself is
+
+1897
+01:05:46,720 --> 01:05:51,039
+closed how it will get the data it
+
+1898
+01:05:48,559 --> 01:05:53,280
+cannot right so after closing the driver
+
+1899
+01:05:51,039 --> 01:05:55,839
+here you can close driver not driver
+
+1900
+01:05:53,280 --> 01:05:56,880
+connection connection dot close
+
+1901
+01:05:55,839 --> 01:05:58,480
+sorry
+
+1902
+01:05:56,880 --> 01:05:59,280
+connection
+
+1903
+01:05:58,480 --> 01:06:03,200
+not
+
+1904
+01:05:59,280 --> 01:06:03,200
+close we can use connection close here
+
+1905
+01:06:03,680 --> 01:06:08,160
+okay
+
+1906
+01:06:04,480 --> 01:06:10,799
+so this is how we have to
+
+1907
+01:06:08,160 --> 01:06:13,839
+work with the data-driven testing so let
+
+1908
+01:06:10,799 --> 01:06:16,079
+me just execute and see now right click
+
+1909
+01:06:13,839 --> 01:06:19,079
+and it is not identifying the connection
+
+1910
+01:06:16,079 --> 01:06:19,079
+actually
+
+1911
+01:06:19,599 --> 01:06:25,280
+so because the connection variable which
+
+1912
+01:06:21,680 --> 01:06:27,839
+we created inside the try block
+
+1913
+01:06:25,280 --> 01:06:28,140
+all right so after completion of the fun
+
+1914
+01:06:27,839 --> 01:06:29,760
+loop
+
+1915
+01:06:28,140 --> 01:06:32,880
+[Music]
+
+1916
+01:06:29,760 --> 01:06:34,720
+and it will go up again
+
+1917
+01:06:32,880 --> 01:06:36,160
+okay after execution of for loop
+
+1918
+01:06:34,720 --> 01:06:37,359
+multiple times we have to close the
+
+1919
+01:06:36,160 --> 01:06:40,079
+connection
+
+1920
+01:06:37,359 --> 01:06:43,200
+so it should be
+
+1921
+01:06:40,079 --> 01:06:45,680
+here here it should be why because even
+
+1922
+01:06:43,200 --> 01:06:47,920
+this time dot sleep is also
+
+1923
+01:06:45,680 --> 01:06:50,920
+sorry it is not driver.close it is a
+
+1924
+01:06:47,920 --> 01:06:50,920
+connection.close
+
+1925
+01:06:51,599 --> 01:06:55,200
+and here driver.close
+
+1926
+01:06:57,039 --> 01:07:03,680
+now what happens so in this for loop we
+
+1927
+01:07:00,480 --> 01:07:07,200
+just created all this code so for loopy
+
+1928
+01:07:03,680 --> 01:07:09,119
+started here and end here
+
+1929
+01:07:07,200 --> 01:07:10,960
+and this is not part of the for loop
+
+1930
+01:07:09,119 --> 01:07:13,280
+okay so only these statements are part
+
+1931
+01:07:10,960 --> 01:07:15,280
+of the for loop so until the connection
+
+1932
+01:07:13,280 --> 01:07:17,200
+is open these statements will execute
+
+1933
+01:07:15,280 --> 01:07:19,200
+multiple times after completion of the
+
+1934
+01:07:17,200 --> 01:07:21,839
+for loop after completion of whole for
+
+1935
+01:07:19,200 --> 01:07:23,520
+loop finally connection will close and
+
+1936
+01:07:21,839 --> 01:07:25,760
+then it will come here
+
+1937
+01:07:23,520 --> 01:07:29,839
+so now let us execute and test how it is
+
+1938
+01:07:25,760 --> 01:07:29,839
+going to perform the data driven test
+
+1939
+01:07:35,119 --> 01:07:39,119
+okay now it is launched my application
+
+1940
+01:07:37,359 --> 01:07:43,720
+now you can just look at here
+
+1941
+01:07:39,119 --> 01:07:43,720
+it is reading the data from the database
+
+1942
+01:07:48,880 --> 01:07:52,559
+okay so now it is done so it should
+
+1943
+01:07:50,880 --> 01:07:54,799
+close my page
+
+1944
+01:07:52,559 --> 01:07:56,880
+yeah still it is entering
+
+1945
+01:07:54,799 --> 01:07:59,039
+yeah now you can see so intentionally i
+
+1946
+01:07:56,880 --> 01:08:00,960
+failed the last input so which is uh
+
+1947
+01:07:59,039 --> 01:08:02,799
+actually the input itself is wrong
+
+1948
+01:08:00,960 --> 01:08:04,319
+expected match it value is not this one
+
+1949
+01:08:02,799 --> 01:08:06,079
+actually so that's the reason it's got
+
+1950
+01:08:04,319 --> 01:08:08,160
+failed that is expected
+
+1951
+01:08:06,079 --> 01:08:10,160
+so you can just
+
+1952
+01:08:08,160 --> 01:08:12,720
+try this so this is how we can perform
+
+1953
+01:08:10,160 --> 01:08:14,480
+the data driven testing using database
+
+1954
+01:08:12,720 --> 01:08:16,239
+as a source
+
+1955
+01:08:14,480 --> 01:08:17,600
+so you can have any number of rows you
+
+1956
+01:08:16,239 --> 01:08:18,719
+can have any number of columns it
+
+1957
+01:08:17,600 --> 01:08:20,000
+doesn't matter
+
+1958
+01:08:18,719 --> 01:08:21,600
+okay so
+
+1959
+01:08:20,000 --> 01:08:23,279
+that will not increase that will not
+
+1960
+01:08:21,600 --> 01:08:24,880
+increase your code even if you have used
+
+1961
+01:08:23,279 --> 01:08:26,799
+data in the table that will not increase
+
+1962
+01:08:24,880 --> 01:08:28,000
+your code the same code you can still
+
+1963
+01:08:26,799 --> 01:08:29,600
+use for
+
+1964
+01:08:28,000 --> 01:08:31,440
+data so you can have
+
+1965
+01:08:29,600 --> 01:08:33,600
+a huge data in the table it doesn't
+
+1966
+01:08:31,440 --> 01:08:33,920
+matter so you can still use the same
+
+1967
+01:08:33,600 --> 01:08:36,080
+code
+
+1968
+01:08:33,920 --> 01:08:36,880
+[Music]
+
+1969
+01:08:36,080 --> 01:08:38,640
+okay
+
+1970
+01:08:36,880 --> 01:08:40,319
+so if you still want to reduce the code
+
+1971
+01:08:38,640 --> 01:08:42,560
+what you can do is you can just avoid
+
+1972
+01:08:40,319 --> 01:08:44,159
+creating multiple variables
+
+1973
+01:08:42,560 --> 01:08:46,880
+so instead of that you can directly
+
+1974
+01:08:44,159 --> 01:08:48,640
+specify this row of 0 here
+
+1975
+01:08:46,880 --> 01:08:52,400
+and then row of 1
+
+1976
+01:08:48,640 --> 01:08:55,040
+here and then row of 2 here row of three
+
+1977
+01:08:52,400 --> 01:08:57,040
+here or here row of three row of four
+
+1978
+01:08:55,040 --> 01:08:58,799
+you can directly substitute this
+
+1979
+01:08:57,040 --> 01:09:01,600
+wherever you're passing the data so in
+
+1980
+01:08:58,799 --> 01:09:03,839
+that case another five to six lines code
+
+1981
+01:09:01,600 --> 01:09:06,719
+will be reduced
+
+1982
+01:09:03,839 --> 01:09:10,319
+okay so this is all about
+
+1983
+01:09:06,719 --> 01:09:12,640
+data driven testing using database
+
+1984
+01:09:10,319 --> 01:09:14,239
+so this much is more than enough guys so
+
+1985
+01:09:12,640 --> 01:09:16,080
+apart from this you don't do anything
+
+1986
+01:09:14,239 --> 01:09:18,080
+related to database testing using
+
+1987
+01:09:16,080 --> 01:09:19,359
+selenium
+
+1988
+01:09:18,080 --> 01:09:21,199
+okay people will think this is a
+
+1989
+01:09:19,359 --> 01:09:23,359
+database this is not actually database
+
+1990
+01:09:21,199 --> 01:09:24,960
+testing this is a data driven testing
+
+1991
+01:09:23,359 --> 01:09:27,279
+not a database testing we are not
+
+1992
+01:09:24,960 --> 01:09:29,120
+validating anything in the database
+
+1993
+01:09:27,279 --> 01:09:31,359
+we are not validating anything on the
+
+1994
+01:09:29,120 --> 01:09:32,480
+database we are just returning the data
+
+1995
+01:09:31,359 --> 01:09:34,400
+we are getting the data or we are
+
+1996
+01:09:32,480 --> 01:09:36,480
+fetching the data from the database and
+
+1997
+01:09:34,400 --> 01:09:38,960
+we are using it for data driven testing
+
+1998
+01:09:36,480 --> 01:09:40,480
+that's safer but database testing is
+
+1999
+01:09:38,960 --> 01:09:42,080
+having lot of things we need to do in
+
+2000
+01:09:40,480 --> 01:09:44,159
+the database
+
+2001
+01:09:42,080 --> 01:09:45,920
+so claim is not meant for database
+
+2002
+01:09:44,159 --> 01:09:47,520
+testing remember that
+
+2003
+01:09:45,920 --> 01:09:49,040
+but i have just shown you some basic
+
+2004
+01:09:47,520 --> 01:09:51,120
+operations okay
+
+2005
+01:09:49,040 --> 01:09:53,440
+so print cursor you cannot print because
+
+2006
+01:09:51,120 --> 01:09:56,239
+cursor is a kind of an object it's a
+
+2007
+01:09:53,440 --> 01:09:58,080
+temporary memory which contains the data
+
+2008
+01:09:56,239 --> 01:09:59,600
+okay which will not give you anything so
+
+2009
+01:09:58,080 --> 01:10:00,640
+it's a temporary memory internally
+
+2010
+01:09:59,600 --> 01:10:03,120
+created
+
+2011
+01:10:00,640 --> 01:10:05,760
+so we cannot print the cursor you cannot
+
+2012
+01:10:03,120 --> 01:10:07,360
+directly get the cursor
+
+2013
+01:10:05,760 --> 01:10:09,199
+okay
+
+2014
+01:10:07,360 --> 01:10:11,280
+so remember that
+
+2015
+01:10:09,199 --> 01:10:13,760
+so let me just show you if i print the
+
+2016
+01:10:11,280 --> 01:10:15,120
+cursor what happens
+
+2017
+01:10:13,760 --> 01:10:17,120
+print
+
+2018
+01:10:15,120 --> 01:10:19,360
+cursor okay i'm just printing the cursor
+
+2019
+01:10:17,120 --> 01:10:21,840
+and uh i'll comment these two statements
+
+2020
+01:10:19,360 --> 01:10:23,520
+and see what will happen
+
+2021
+01:10:21,840 --> 01:10:25,040
+because uh this is select a command and
+
+2022
+01:10:23,520 --> 01:10:27,199
+select command will get the data into
+
+2023
+01:10:25,040 --> 01:10:29,040
+the cursor i'm just printing the cursor
+
+2024
+01:10:27,199 --> 01:10:31,840
+execute
+
+2025
+01:10:29,040 --> 01:10:34,320
+what happens it is not printed anything
+
+2026
+01:10:31,840 --> 01:10:36,719
+just mysql cursor is selected star from
+
+2027
+01:10:34,320 --> 01:10:38,239
+orders so it is just executed this query
+
+2028
+01:10:36,719 --> 01:10:40,000
+which is just printed but it will not
+
+2029
+01:10:38,239 --> 01:10:41,520
+give you anything else
+
+2030
+01:10:40,000 --> 01:10:42,800
+so we have to write the looping
+
+2031
+01:10:41,520 --> 01:10:45,120
+statement
+
+2032
+01:10:42,800 --> 01:10:47,920
+by which we will be able to get the data
+
+2033
+01:10:45,120 --> 01:10:47,920
+from the cursor
+
+2034
+01:10:49,199 --> 01:10:53,810
+so this is all about
+
+2035
+01:10:51,280 --> 01:10:55,440
+data driven testing using database
+
+2036
+01:10:53,810 --> 01:10:58,440
+[Music]
+
+2037
+01:10:55,440 --> 01:10:58,440
+okay
+
+2038
+01:10:59,040 --> 01:11:05,400
+that's all for today's session okay i'm
+
+2039
+01:11:00,960 --> 01:11:05,400
+just stopping we will continue tomorrow
+

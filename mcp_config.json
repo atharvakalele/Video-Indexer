@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "youtube-transcript": {
+      "command": "C:\\Users\\athar\\Desktop\\Selenium\\venv\\Scripts\\python.exe",
+      "args": [
+        "C:\\Users\\athar\\Desktop\\Selenium\\youtube_mcp_server.py"
+      ],
+      "env": {
+        "PYTHONPATH": "C:\\Users\\athar\\Desktop\\Selenium"
+      }
+    }
+  }
+}

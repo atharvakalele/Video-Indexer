@@ -1,0 +1,7 @@
+venv/
+.env
+__pycache__/
+session_*_opt.txt
+*.pyc
+.DS_Store
+.gemini/
