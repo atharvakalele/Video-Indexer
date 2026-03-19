@@ -21,7 +21,13 @@ def get_video_id(url):
 
 def fetch_transcript_text(url):
     """Downloads and cleans the transcript using yt-dlp."""
-    output_base = "temp_transcript"
+    # Store temporary transcripts in the 'temp/' directory
+    output_dir = os.path.join(os.getcwd(), "temp")
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+        
+    output_base = os.path.join(output_dir, "temp_transcript")
+    
     # Clean up old files
     for ext in ['srt', 'txt']:
         if os.path.exists(f"{output_base}.en.{ext}"):
@@ -30,9 +36,9 @@ def fetch_transcript_text(url):
             os.remove(f"{output_base}.{ext}")
             
     try:
-        # Get absolute path to yt-dlp in the venv
-        venv_bin = os.path.dirname(os.path.abspath(__file__))
-        yt_dlp_path = os.path.join(venv_bin, "venv", "Scripts", "yt-dlp.exe")
+        # Get absolute path to yt-dlp in the venv (root/venv/Scripts/yt-dlp.exe)
+        # Standard: Root is CWD
+        yt_dlp_path = os.path.join(os.getcwd(), "venv", "Scripts", "yt-dlp.exe")
         if not os.path.exists(yt_dlp_path):
              yt_dlp_path = "yt-dlp" # Fallback
              
@@ -49,9 +55,9 @@ def fetch_transcript_text(url):
         if not os.path.exists(srt_path):
             # Try without .en or other variations
             found = False
-            for f in os.listdir("."):
-                if f.startswith(output_base) and f.endswith(".srt"):
-                    srt_path = f
+            for f in os.listdir(output_dir):
+                if f.startswith("temp_transcript") and f.endswith(".srt"):
+                    srt_path = os.path.join(output_dir, f)
                     found = True
                     break
             if not found:
@@ -59,8 +65,8 @@ def fetch_transcript_text(url):
             
         print(f"Checking for srt at: {srt_path}")
         if not srt_path or not os.path.exists(srt_path):
-            files = ", ".join(os.listdir(".")[:5])
-            return f"Error: Could not find downloaded transcript file. Files in dir: {files}"
+            files = ", ".join(os.listdir(output_dir)[:5])
+            return f"Error: Could not find downloaded transcript file in temp/. Files in dir: {files}"
             
         with open(srt_path, 'r', encoding='utf-8') as f:
             content = f.read()

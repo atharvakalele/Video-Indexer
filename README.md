@@ -48,10 +48,27 @@ Add this to your `claude_desktop_config.json`:
 }
 ```
 
+### Project Structure
+```
+Video-Indexer/
+├── src/               # Core MCP server logic
+│   ├── youtube_mcp_server.py
+│   └── youtube_utils.py
+├── outputs/           # Study guides and transcripts
+│   ├── index.md       # Selenium study guide
+│   └── transcripts/   # Optimized session transcripts
+├── scripts/           # Testing and legacy utility scripts
+│   └── test_mcp.py
+├── temp/              # Temporary and debug files
+├── .env               # API Configuration (ignored)
+├── mcp_config.json    # MCP Registration Template
+└── requirements.txt   # Dependencies
+```
+
 ### Key Files
-- `youtube_mcp_server.py`: Main MCP server entry point.
-- `youtube_utils.py`: Core logic for fetching and optimizing transcripts.
-- `index.md`: The generated Selenium study guide.
+- `src/youtube_mcp_server.py`: Main MCP server entry point.
+- `src/youtube_utils.py`: Core logic for fetching and optimizing transcripts.
+- `outputs/index.md`: The generated Selenium study guide.
 
 ## License
 MIT
