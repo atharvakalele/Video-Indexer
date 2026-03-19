@@ -9,7 +9,7 @@ load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 # Create an MCP server
-mcp = FastMCP("YouTube Topic Extractor")
+mcp = FastMCP("Video Indexer")
 
 @mcp.tool()
 def get_video_topics(url: str) -> str:

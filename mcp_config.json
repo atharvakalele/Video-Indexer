@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "youtube-transcript": {
+    "video-indexer": {
       "command": "C:\\Users\\athar\\Desktop\\Selenium\\venv\\Scripts\\python.exe",
       "args": [
         "C:\\Users\\athar\\Desktop\\Selenium\\youtube_mcp_server.py"

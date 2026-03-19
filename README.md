@@ -1,6 +1,6 @@
-# YouTube Transcript & Topic Extractor MCP Server
+# Video Indexer MCP Server
 
-A high-performance, token-efficient MCP server designed to extract technical topics and full transcripts from YouTube videos. Optimized for large-scale indexing (e.g., Selenium playlists) with local pre-processing to minimize LLM token usage.
+A high-performance, token-efficient MCP server designed to extract technical topics and full transcripts from any YouTube video.
 
 ## Features
 - **FastMCP Integration**: Connects seamlessly with Claude Desktop or any MCP client.
