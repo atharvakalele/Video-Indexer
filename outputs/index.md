@@ -300,3 +300,38 @@ This index contains topics extracted from the tutorial video ["Selenium with Pyt
 - Why is using `try-except` blocks crucial when dealing with database connections?
 - What are the limitations of using Selenium for direct "Database Testing," and why is it considered more of a DDT source?
 - How do you close a database connection properly to release resources?
+
+## Extra Video: Selenium & Java Mock Interview (gGWuzTPSJ8Y)
+- What are the challenges and disadvantages of the Agile process?
+- How do you ensure all scenarios in an application are tested (test coverage)?
+- What are the various types of testing conducted in a project (Functional, Integration, System, Regression)?
+- What is Integration Testing and what scenarios are checked?
+- What are the common test case design techniques (BVA, Error Guessing, Equivalence Partitioning)?
+- How do you handle a bug found in production?
+- When do you perform regression testing, and what is considered?
+- What is the difference between Change Request (CR) and Feature Request (FR)?
+- What are the important features of Java used in automation (Inheritance, Abstraction, Polymorphism/Overloading, Encapsulation)?
+- What collections are mainly used in Selenium (Set, List)?
+- What is the difference between Set and List in Java?
+- What is the use of the `final` keyword in Java (with class, variable, method)?
+- What is the difference between `final` and `finally`?
+- How to find the largest of two numbers without using an `if` condition using the Ternary Operator?
+- How to count uppercase and lowercase characters in a string in Java?
+- Can you explain the statement `WebDriver driver = new ChromeDriver();`?
+- Why do we use wait statements, and what expected conditions are used in explicit waits?
+- What is the use of Desired Capabilities in Selenium?
+- What is the Document Object Model (DOM)?
+- What is an XPath and how does it work with the DOM structure?
+- What is the difference between Absolute and Relative XPath, and which is preferable?
+- What is the use of `JavascriptExecutor` in Selenium?
+- How do you handle multiple windows in Selenium (`getWindowHandle` vs `getWindowHandles`)?
+- How do you find the number of options in a drop-down using the `Select` class?
+- How do you perform mouse operations using the `Actions` class?
+- What is the difference between Hard Assert and Soft Assert in TestNG?
+- How does prioritization work in TestNG, especially when multiple tests have the same or zero priority?
+- How do you execute only the failed test cases in TestNG?
+- Can you explain the components of a Hybrid Driven Framework (Data-driven, Modular, Keyword)?
+- How do you maintain test data and reusable utilities in your framework?
+- What are the benefits of using a Maven project for automation?
+- What is the role of Jenkins in your automation pipeline, and how does it integrate with GitHub?
+- What are the basic Git commands used in a daily workflow (`push`, `pull`, `commit`, `merge`)?
